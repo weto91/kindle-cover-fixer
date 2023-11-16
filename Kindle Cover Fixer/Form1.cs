@@ -104,7 +104,10 @@ namespace Kindle_Cover_Fixer
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Directory.Delete(Environment.CurrentDirectory + "\\" + "EXPORTED", true);
+            if (Directory.Exists(Environment.CurrentDirectory + "\\" + "EXPORTED"))
+            {
+                Directory.Delete(Environment.CurrentDirectory + "\\" + "EXPORTED", true);
+            }
             Directory.CreateDirectory(Environment.CurrentDirectory + "\\" + "EXPORTED");
             bookList("generate");
         }

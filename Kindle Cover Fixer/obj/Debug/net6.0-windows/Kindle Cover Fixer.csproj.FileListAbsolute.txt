@@ -15,3 +15,20 @@ D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\Kindle Cover Fixer\obj\D
 D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.genruntimeconfig.cache
 D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\ref\Kindle Cover Fixer.dll
 D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle_Cover_Fixer.Form2.resources
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\bin\Debug\net6.0-windows\Kindle Cover Fixer.exe
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\bin\Debug\net6.0-windows\Kindle Cover Fixer.deps.json
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\bin\Debug\net6.0-windows\Kindle Cover Fixer.runtimeconfig.json
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\bin\Debug\net6.0-windows\Kindle Cover Fixer.dll
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\bin\Debug\net6.0-windows\Kindle Cover Fixer.pdb
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle_Cover_Fixer.Form1.resources
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle_Cover_Fixer.Form2.resources
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.csproj.GenerateResource.cache
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.AssemblyInfoInputs.cache
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.AssemblyInfo.cs
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.csproj.CoreCompileInputs.cache
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.dll
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\refint\Kindle Cover Fixer.dll
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.pdb
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\Kindle Cover Fixer.genruntimeconfig.cache
+D:\Documents\PROYECTOS\VISUAL STUDIO\Kindle Cover Fixer\kindle-cover-fixer\Kindle Cover Fixer\obj\Debug\net6.0-windows\ref\Kindle Cover Fixer.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj": {}
+    "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj": {
+    "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
+        "projectUniqueName": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
         "projectName": "Kindle Cover Fixer",
-        "projectPath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
+        "projectPath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
         "packagesPath": "C:\\Users\\alrua\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\Kindle Cover Fixer\\obj\\",
+        "outputPath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
