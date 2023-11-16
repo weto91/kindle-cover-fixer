@@ -38,4 +38,3 @@ At this time, this application is only tested on Kindle Scribe. In next updates,
 ## Next steps
 - Add compatibility to some another Kindle devices
 - Add the functionality to automatically transfer fixed covers to the Kindle device.
-- 
