@@ -9,6 +9,13 @@
 - Or use the Debug folder inside the project.
 
 ## How to use the application
+- The first thing to do is transfer the books from our caliber library to the Kindle device
+- We disconnect the device and wait for it to load the complete library
+- With the Kindle device connected to the internet, we wait for the following image to appear as the cover image of our ebooks
+
+  
+![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/thumbnail_generic.jpg)
+
 - Open the application
 - Click on "Select" button and select the Calibre library folder on your HDD (It is normally in the Documents/Calibre library folder)
 - After a few seconds, the complete list of books in the library will appear
@@ -20,7 +27,7 @@
 You can modify the application as you want. This is the IDE that i use:
 > Visual Studio 2022 Community.
 
-# Compatible devices
+## Compatible devices
 At this time, this application is only tested on Kindle Scribe. In next updates, we will test it on:
 - Kindle Paperwhite 7º Gen
 - Kindle Paperwhite 11º Gen
@@ -28,3 +35,7 @@ At this time, this application is only tested on Kindle Scribe. In next updates,
 
 > We do not have any more Kindle devices to test. If you want to participate in the development, contact me at: alruad@gmail.com
 
+## Next steps
+- Add compatibility to some another Kindle devices
+- Add the functionality to automatically transfer fixed covers to the Kindle device.
+- 
