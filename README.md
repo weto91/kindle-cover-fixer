@@ -5,7 +5,7 @@
 - Fix your missing ebook covers in your Kindle library
 
 ## How to run the app
-- You can download the las release from: https://github.com/weto91/kindle-cover-fixer/releases
+- You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases
 - Or use the Debug folder inside the project.
 
 ## How to use the application
