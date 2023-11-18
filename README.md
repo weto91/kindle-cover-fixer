@@ -30,6 +30,12 @@
 ## Modify the application yourself
 You can modify the application as you want. This is the IDE that i use:
 > Visual Studio 2022 Community.
+- Open the Kindle Cover Fixer.sln file from Visual Studio 2022 Community. This way you can view the graphic editor of the forms.
+- In case of forking the project. Modify the CheckGitHubNewerVersion function:
+> var releases = await client.Repository.Release.GetLatest("weto91", "kindle-cover-fixer");
+> TO
+> var releases = await client.Repository.Release.GetLatest("your_GitHub_user", "kindle-cover-fixer");
+This way, if you upload a new release, the versions will be checked from your own repository. You will also have to modify the MainScreen function. Exactly the variable versionLabel.Text. So that it works with your own version.
 
 ## Compatible devices
 At this time, this application is only tested on Kindle Scribe. In next updates, we will test it on:
@@ -41,4 +47,4 @@ At this time, this application is only tested on Kindle Scribe. In next updates,
 
 ## Next steps
 - Add compatibility to some another Kindle devices
-- Add the functionality to automatically transfer fixed covers to the Kindle device.
+- Add the functionality to automatically transfer fixed covers to the Kindle device. --> DONE
