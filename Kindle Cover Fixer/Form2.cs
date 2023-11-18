@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kindle_Cover_Fixer
 {
-    public partial class Form2 : Form
+    public partial class HelpScreen : Form
     {
-        public Form2()
+        public HelpScreen()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace Kindle_Cover_Fixer
 
         private void form2_Closed(object sender, FormClosedEventArgs e)
         {
-            Form1 frm = new Form1();
+            MainScreen frm = new MainScreen();
             frm.Show();
             this.Hide();
         }

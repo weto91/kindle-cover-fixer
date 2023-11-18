@@ -1,6 +1,6 @@
 ﻿namespace Kindle_Cover_Fixer
 {
-    partial class Form1
+    partial class MainScreen
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            libraryPath = new TextBox();
+            selectLibraryButton = new Button();
             folderBrowserDialog1 = new FolderBrowserDialog();
-            textBox2 = new TextBox();
+            bookListPath = new TextBox();
             groupBox1 = new GroupBox();
-            button2 = new Button();
+            generateCoversButton = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openExportedDirectoryToolStripMenuItem = new ToolStripMenuItem();
@@ -43,9 +43,15 @@
             closeToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             manualToolStripMenuItem = new ToolStripMenuItem();
-            linkLabel1 = new LinkLabel();
+            gitHubLinkLabel = new LinkLabel();
+            transferButton = new Button();
+            statusStrip1 = new StatusStrip();
+            progressBarTransfer = new ToolStripProgressBar();
+            versionLabel = new ToolStripStatusLabel();
+            updateButton = new ToolStripSplitButton();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -57,38 +63,38 @@
             label1.TabIndex = 0;
             label1.Text = "Calibre library:";
             // 
-            // textBox1
+            // libraryPath
             // 
-            textBox1.Location = new Point(101, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(594, 23);
-            textBox1.TabIndex = 1;
+            libraryPath.Location = new Point(101, 30);
+            libraryPath.Name = "libraryPath";
+            libraryPath.Size = new Size(594, 23);
+            libraryPath.TabIndex = 1;
             // 
-            // button1
+            // selectLibraryButton
             // 
-            button1.Location = new Point(701, 30);
-            button1.Name = "button1";
-            button1.Size = new Size(96, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Seleccionar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            selectLibraryButton.Location = new Point(701, 30);
+            selectLibraryButton.Name = "selectLibraryButton";
+            selectLibraryButton.Size = new Size(96, 23);
+            selectLibraryButton.TabIndex = 2;
+            selectLibraryButton.Text = "Seleccionar";
+            selectLibraryButton.UseVisualStyleBackColor = true;
+            selectLibraryButton.Click += selectLibraryButton_Click;
             // 
-            // textBox2
+            // bookListPath
             // 
-            textBox2.BackColor = SystemColors.Window;
-            textBox2.Location = new Point(6, 22);
-            textBox2.MaxLength = 999999;
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.ScrollBars = ScrollBars.Both;
-            textBox2.Size = new Size(773, 383);
-            textBox2.TabIndex = 999;
+            bookListPath.BackColor = SystemColors.Window;
+            bookListPath.Location = new Point(6, 22);
+            bookListPath.MaxLength = 999999;
+            bookListPath.Multiline = true;
+            bookListPath.Name = "bookListPath";
+            bookListPath.ReadOnly = true;
+            bookListPath.ScrollBars = ScrollBars.Both;
+            bookListPath.Size = new Size(773, 383);
+            bookListPath.TabIndex = 999;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(bookListPath);
             groupBox1.Location = new Point(12, 59);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(785, 411);
@@ -96,23 +102,23 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Books directory list";
             // 
-            // button2
+            // generateCoversButton
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(692, 476);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Generate covers";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            generateCoversButton.Enabled = false;
+            generateCoversButton.Location = new Point(692, 476);
+            generateCoversButton.Name = "generateCoversButton";
+            generateCoversButton.Size = new Size(105, 23);
+            generateCoversButton.TabIndex = 5;
+            generateCoversButton.Text = "Generate covers";
+            generateCoversButton.UseVisualStyleBackColor = true;
+            generateCoversButton.Click += generateCoversButton_Click;
             // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(806, 24);
+            menuStrip1.Size = new Size(813, 24);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -156,39 +162,91 @@
             manualToolStripMenuItem.Text = "Manual";
             manualToolStripMenuItem.Click += manualToolStripMenuItem_Click;
             // 
-            // linkLabel1
+            // gitHubLinkLabel
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(18, 480);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(152, 15);
-            linkLabel1.TabIndex = 7;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "https://github.com/weto91";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            gitHubLinkLabel.AutoSize = true;
+            gitHubLinkLabel.Location = new Point(12, 484);
+            gitHubLinkLabel.Name = "gitHubLinkLabel";
+            gitHubLinkLabel.Size = new Size(152, 15);
+            gitHubLinkLabel.TabIndex = 7;
+            gitHubLinkLabel.TabStop = true;
+            gitHubLinkLabel.Text = "https://github.com/weto91";
+            gitHubLinkLabel.LinkClicked += gitHubLinkLabel_LinkClicked;
             // 
-            // Form1
+            // transferButton
+            // 
+            transferButton.Enabled = false;
+            transferButton.Location = new Point(522, 476);
+            transferButton.Name = "transferButton";
+            transferButton.Size = new Size(164, 23);
+            transferButton.TabIndex = 8;
+            transferButton.Text = "Transfer Covers to Kindle Scribe";
+            transferButton.UseVisualStyleBackColor = true;
+            transferButton.Visible = false;
+            transferButton.Click += transferButton_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { progressBarTransfer, versionLabel, updateButton });
+            statusStrip1.Location = new Point(0, 517);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(813, 22);
+            statusStrip1.TabIndex = 10;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // progressBarTransfer
+            // 
+            progressBarTransfer.Name = "progressBarTransfer";
+            progressBarTransfer.Size = new Size(100, 16);
+            progressBarTransfer.Step = 1;
+            // 
+            // versionLabel
+            // 
+            versionLabel.Name = "versionLabel";
+            versionLabel.Size = new Size(0, 17);
+            // 
+            // updateButton
+            // 
+            updateButton.BackColor = SystemColors.ButtonFace;
+            updateButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            updateButton.DropDownButtonWidth = 0;
+            updateButton.ForeColor = Color.Red;
+            updateButton.ImageScaling = ToolStripItemImageScaling.None;
+            updateButton.ImageTransparentColor = Color.Magenta;
+            updateButton.Margin = new Padding(5, 2, 0, 0);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(54, 20);
+            updateButton.Text = "UPDATE";
+            updateButton.TextImageRelation = TextImageRelation.TextAboveImage;
+            updateButton.Visible = false;
+            updateButton.ButtonClick += updateButton_ButtonClick;
+            // 
+            // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(806, 508);
-            Controls.Add(linkLabel1);
-            Controls.Add(button2);
+            ClientSize = new Size(813, 539);
+            Controls.Add(statusStrip1);
+            Controls.Add(transferButton);
+            Controls.Add(gitHubLinkLabel);
+            Controls.Add(generateCoversButton);
             Controls.Add(groupBox1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(selectLibraryButton);
+            Controls.Add(libraryPath);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "MainScreen";
             Text = "Kindle Cover Fixer";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,12 +254,12 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox libraryPath;
+        private Button selectLibraryButton;
         private FolderBrowserDialog folderBrowserDialog1;
-        private TextBox textBox2;
+        private TextBox bookListPath;
         private GroupBox groupBox1;
-        private Button button2;
+        private Button generateCoversButton;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openExportedDirectoryToolStripMenuItem;
@@ -209,6 +267,11 @@
         private ToolStripMenuItem closeToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem manualToolStripMenuItem;
-        private LinkLabel linkLabel1;
+        private LinkLabel gitHubLinkLabel;
+        private Button transferButton;
+        private StatusStrip statusStrip1;
+        private ToolStripProgressBar progressBarTransfer;
+        private ToolStripStatusLabel versionLabel;
+        private ToolStripSplitButton updateButton;
     }
 }

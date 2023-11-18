@@ -1,6 +1,6 @@
 ﻿namespace Kindle_Cover_Fixer
 {
-    partial class Form2
+    partial class HelpScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpScreen));
             richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
@@ -41,14 +41,14 @@
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
-            // Form2
+            // HelpScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(richTextBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form2";
+            Name = "HelpScreen";
             Text = "Kindle Cover Fixer - Help";
             FormClosed += form2_Closed;
             Load += Form2_Load;
