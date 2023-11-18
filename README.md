@@ -1,8 +1,10 @@
 # Kindle Cover Fixer
 
-## Feature
+## Features
 
 - Fix your missing ebook covers in your Kindle library
+- Send the fixed images to your Kindle Scribe device in one click.
+- You won't have to do anything else to enjoy your covers again.
 
 ## How to run the app
 - You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases/latest
@@ -33,8 +35,11 @@ You can modify the application as you want. This is the IDE that i use:
 - Open the Kindle Cover Fixer.sln file from Visual Studio 2022 Community. This way you can view the graphic editor of the forms.
 - In case of forking the project. Modify the CheckGitHubNewerVersion function:
 > var releases = await client.Repository.Release.GetLatest("weto91", "kindle-cover-fixer");
-> TO
+
+TO
+
 > var releases = await client.Repository.Release.GetLatest("your_GitHub_user", "kindle-cover-fixer");
+
 This way, if you upload a new release, the versions will be checked from your own repository. You will also have to modify the MainScreen function. Exactly the variable versionLabel.Text. So that it works with your own version.
 
 ## Compatible devices
