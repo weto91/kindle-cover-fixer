@@ -6,7 +6,8 @@
 
 ## How to run the app
 - You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases
-- Or use the Debug folder inside the project.
+- There is a setup file that can be used as normal application in your windows computer
+(This application is compatible from Windows 7 to the last Windows version)
 
 ## How to use the application
 - The first thing to do is transfer the books from our caliber library to the Kindle device
