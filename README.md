@@ -5,24 +5,27 @@
 - Fix your missing ebook covers in your Kindle library
 
 ## How to run the app
-- You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases
+- You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases/latest
 - There is a setup file that can be used as normal application in your windows computer
 (This application is compatible from Windows 7 to the last Windows version)
 
 ## How to use the application
 - The first thing to do is transfer the books from our caliber library to the Kindle device
-- We disconnect the device and wait for it to load the complete library
-- With the Kindle device connected to the internet, we wait for the following image to appear as the cover image of our ebooks
+- Disconnect the device and wait for it to load the complete library
+- With the Kindle device connected to the internet, wait for the following image to appear as the cover image of our ebooks
 
   
 ![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/thumbnail_generic.jpg)
 
+- Connect the device to the Windows PC
 - Open the application
 - Click on "Select" button and select the Calibre library folder on your HDD (It is normally in the Documents/Calibre library folder)
-- After a few seconds, the complete list of books in the library will appear
+- After a few seconds, the complete list of books in the library will appear in the blank square of the application
 - Click on "Generate covers" button
 - When the progress is complete, a new window will appear allowing you to open the output directory with the corrected covers.
-- Now, you just have to copy all the corrected covers to the /system/thumbnails directory of your Kindle
+    - If you click on OK. the EXPORTED directory will open. This directory contains all the covers with their respective special names.   
+- A new button will now have appeared to the left of the "Generate covers" button. If you press it while the Kindle Scribe is connected to the PC, the application will automatically transfer all the covers to the correct directory.
+- Now, you can disconnect the Kindle Scribe from your computer. The library on your Kindle have the covers fixed!
 
 ## Modify the application yourself
 You can modify the application as you want. This is the IDE that i use:
