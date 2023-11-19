@@ -13,6 +13,11 @@
         },
         "runtime": {
           "Kindle Cover Fixer.dll": {}
+        },
+        "resources": {
+          "es/Kindle Cover Fixer.resources.dll": {
+            "locale": "es"
+          }
         }
       },
       "MediaDevices/1.10.0": {

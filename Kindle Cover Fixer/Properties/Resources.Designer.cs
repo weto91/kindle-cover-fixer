@@ -83,6 +83,16 @@ namespace Kindle_Cover_Fixer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _47988_folder_icon {
+            get {
+                object obj = ResourceManager.GetObject("47988_folder_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _48532_warning_icon {
             get {
                 object obj = ResourceManager.GetObject("48532_warning_icon", resourceCulture);

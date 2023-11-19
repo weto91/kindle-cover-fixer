@@ -8,15 +8,27 @@ namespace Kindle_Cover_Fixer
 {
     public partial class MainScreen : Form
     {
+        string userDir = String.Empty;
+        string outputDir = String.Empty;
         String fileLibrary = Environment.CurrentDirectory + @"\library.kcf";
         bool isLibrary = false;
         public MainScreen()
         {
+            if (Environment.GetEnvironmentVariable("USERPROFILE") != null)
+            {
+                userDir = Environment.GetEnvironmentVariable("LOCALAPPDATA");
+                outputDir = userDir + @"\KindleCoverFixer\OUTPUT";
+            }
+            else
+            {
+                outputDir = Environment.CurrentDirectory + @"\OUTPUT";
+            }
             InitializeComponent();
             versionLabel.Text = "Version 1.3";
             calibreFolder();
             CheckGitHubNewerVersion();
             CheckKindleType();
+            createOutputDir();
             bookList("list");
         }
         // ACTIONS
@@ -61,13 +73,18 @@ namespace Kindle_Cover_Fixer
                 }
             }
         }
+        private void createOutputDir()
+        {
+
+            if (Directory.Exists(outputDir))
+            {
+                Directory.Delete(outputDir, true);
+            }
+            Directory.CreateDirectory(outputDir);
+        }
         private void generateCoversButton_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(Environment.CurrentDirectory + "\\" + "EXPORTED"))
-            {
-                Directory.Delete(Environment.CurrentDirectory + "\\" + "EXPORTED", true);
-            }
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\" + "EXPORTED");
+            createOutputDir();
             bookList("generate");
         }
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,10 +93,9 @@ namespace Kindle_Cover_Fixer
         }
         private void openExportedDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String directory = Environment.CurrentDirectory + "\\" + "EXPORTED";
-            if (Directory.Exists(directory))
+            if (Directory.Exists(outputDir))
             {
-                OpenFolder(Environment.CurrentDirectory + "\\" + "EXPORTED");
+                OpenFolder(outputDir);
             }
             else
             {
@@ -229,7 +245,7 @@ namespace Kindle_Cover_Fixer
                                         image = file;
                                     }
                                 }
-                                File.Copy(image, Environment.CurrentDirectory + "\\" + "EXPORTED" + "\\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
+                                File.Copy(image, outputDir + @"\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
                             }
                         }
                     }
@@ -237,14 +253,14 @@ namespace Kindle_Cover_Fixer
             }
             if (action == "generate")
             {
-                string message = "Now. You must move all cover images to: <Kindle Scribe>/System/Thumbnails (replace if its necessary)\r\n or you can click on \"Transfer button\" to send files to the Kindle \r\n \r\n Also, you can click on Yes to open de exported folder. ";
+                string message = "Now. You must move all cover images to: <Kindle>/System/Thumbnails (replace if its necessary)\r\n or you can click on \"Transfer button\" to send files to the Kindle \r\n \r\n Also, you can click on Yes to open de exported folder. ";
                 string caption = "Covers generation finished";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    OpenFolder(Environment.CurrentDirectory + "\\" + "EXPORTED");
+                    OpenFolder(outputDir);
                 }
                 transferButton.Visible = true;
                 CheckKindleType();
@@ -312,7 +328,7 @@ namespace Kindle_Cover_Fixer
         }
         private void transferFilesToKindle()
         {
-            String[] covers = Directory.GetFiles(Environment.CurrentDirectory + @"\EXPORTED");
+            String[] covers = Directory.GetFiles(outputDir);
             progressBarTransfer.Maximum = covers.Length;
             progressBarTransfer.Value = 0;
             int bookCounter = 1;

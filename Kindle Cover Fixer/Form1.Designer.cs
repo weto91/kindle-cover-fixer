@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             label1 = new Label();
             libraryPath = new TextBox();
-            selectLibraryButton = new Button();
             folderBrowserDialog1 = new FolderBrowserDialog();
             bookListPath = new TextBox();
             groupBox1 = new GroupBox();
@@ -50,11 +49,12 @@
             progressBarTransfer = new ToolStripProgressBar();
             separatorLeft = new ToolStripStatusLabel();
             deviceName = new ToolStripStatusLabel();
+            connectDevice = new ToolStripSplitButton();
             separatorRight = new ToolStripStatusLabel();
             versionLabel = new ToolStripStatusLabel();
             updateButton = new ToolStripSplitButton();
             toolTip1 = new ToolTip(components);
-            connectDevice = new ToolStripSplitButton();
+            selectLibraryButton = new Button();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -63,34 +63,27 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 33);
+            label1.Location = new Point(12, 40);
             label1.Name = "label1";
             label1.Size = new Size(83, 15);
             label1.TabIndex = 0;
             label1.Text = "Calibre library:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // libraryPath
             // 
-            libraryPath.Location = new Point(101, 30);
+            libraryPath.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            libraryPath.BorderStyle = BorderStyle.FixedSingle;
+            libraryPath.Location = new Point(101, 36);
             libraryPath.Name = "libraryPath";
-            libraryPath.Size = new Size(594, 23);
-            libraryPath.TabIndex = 1;
+            libraryPath.Size = new Size(664, 23);
+            libraryPath.TabIndex = 0;
             toolTip1.SetToolTip(libraryPath, "This is your Calibre library");
-            // 
-            // selectLibraryButton
-            // 
-            selectLibraryButton.Location = new Point(701, 30);
-            selectLibraryButton.Name = "selectLibraryButton";
-            selectLibraryButton.Size = new Size(96, 23);
-            selectLibraryButton.TabIndex = 2;
-            selectLibraryButton.Text = "Seleccionar";
-            toolTip1.SetToolTip(selectLibraryButton, "Find the Calibre library in your disk");
-            selectLibraryButton.UseVisualStyleBackColor = true;
-            selectLibraryButton.Click += selectLibraryButton_Click;
             // 
             // bookListPath
             // 
             bookListPath.BackColor = SystemColors.Window;
+            bookListPath.BorderStyle = BorderStyle.FixedSingle;
             bookListPath.Location = new Point(6, 22);
             bookListPath.MaxLength = 999999;
             bookListPath.Multiline = true;
@@ -98,7 +91,7 @@
             bookListPath.ReadOnly = true;
             bookListPath.ScrollBars = ScrollBars.Both;
             bookListPath.Size = new Size(773, 383);
-            bookListPath.TabIndex = 999;
+            bookListPath.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -116,7 +109,7 @@
             generateCoversButton.Location = new Point(692, 476);
             generateCoversButton.Name = "generateCoversButton";
             generateCoversButton.Size = new Size(105, 23);
-            generateCoversButton.TabIndex = 5;
+            generateCoversButton.TabIndex = 0;
             generateCoversButton.Text = "Generate covers";
             toolTip1.SetToolTip(generateCoversButton, "Generate new covers for the books in library.");
             generateCoversButton.UseVisualStyleBackColor = true;
@@ -135,25 +128,28 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openExportedDirectoryToolStripMenuItem, toolStripSeparator1, closeToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F;
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
             // openExportedDirectoryToolStripMenuItem
             // 
             openExportedDirectoryToolStripMenuItem.Name = "openExportedDirectoryToolStripMenuItem";
-            openExportedDirectoryToolStripMenuItem.Size = new Size(203, 22);
+            openExportedDirectoryToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
+            openExportedDirectoryToolStripMenuItem.Size = new Size(242, 22);
             openExportedDirectoryToolStripMenuItem.Text = "Open exported directory";
             openExportedDirectoryToolStripMenuItem.Click += openExportedDirectoryToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(200, 6);
+            toolStripSeparator1.Size = new Size(239, 6);
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(203, 22);
+            closeToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.C;
+            closeToolStripMenuItem.Size = new Size(242, 22);
             closeToolStripMenuItem.Text = "Close";
             closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
             // 
@@ -167,7 +163,8 @@
             // manualToolStripMenuItem
             // 
             manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            manualToolStripMenuItem.Size = new Size(114, 22);
+            manualToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.H;
+            manualToolStripMenuItem.Size = new Size(180, 22);
             manualToolStripMenuItem.Text = "Manual";
             manualToolStripMenuItem.Click += manualToolStripMenuItem_Click;
             // 
@@ -178,7 +175,7 @@
             gitHubLinkLabel.Location = new Point(18, 480);
             gitHubLinkLabel.Name = "gitHubLinkLabel";
             gitHubLinkLabel.Size = new Size(152, 15);
-            gitHubLinkLabel.TabIndex = 7;
+            gitHubLinkLabel.TabIndex = 0;
             gitHubLinkLabel.TabStop = true;
             gitHubLinkLabel.Text = "https://github.com/weto91";
             gitHubLinkLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -191,7 +188,7 @@
             transferButton.Location = new Point(522, 476);
             transferButton.Name = "transferButton";
             transferButton.Size = new Size(164, 23);
-            transferButton.TabIndex = 8;
+            transferButton.TabIndex = 0;
             transferButton.Text = "Transfer Covers to Kindle Scribe";
             toolTip1.SetToolTip(transferButton, "Send the generated covers to the Kindle");
             transferButton.UseVisualStyleBackColor = true;
@@ -204,6 +201,7 @@
             statusStrip1.Location = new Point(0, 506);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(813, 22);
+            statusStrip1.SizingGrip = false;
             statusStrip1.TabIndex = 10;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -225,10 +223,25 @@
             deviceName.Name = "deviceName";
             deviceName.Size = new Size(16, 17);
             // 
+            // connectDevice
+            // 
+            connectDevice.AutoToolTip = false;
+            connectDevice.BackColor = SystemColors.MenuHighlight;
+            connectDevice.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            connectDevice.DropDownButtonWidth = 0;
+            connectDevice.ForeColor = Color.Red;
+            connectDevice.Image = (Image)resources.GetObject("connectDevice.Image");
+            connectDevice.ImageTransparentColor = Color.Magenta;
+            connectDevice.Name = "connectDevice";
+            connectDevice.Size = new Size(94, 20);
+            connectDevice.Text = "Connect device";
+            connectDevice.ToolTipText = "If you have connected a Kindle device after opening the app, you can press this button to have the app recognize it so you can transfer the covers directly to the device.";
+            connectDevice.Visible = false;
+            // 
             // separatorRight
             // 
             separatorRight.Name = "separatorRight";
-            separatorRight.Size = new Size(454, 17);
+            separatorRight.Size = new Size(655, 17);
             separatorRight.Spring = true;
             // 
             // versionLabel
@@ -253,20 +266,17 @@
             updateButton.Visible = false;
             updateButton.ButtonClick += updateButton_ButtonClick;
             // 
-            // connectDevice
+            // selectLibraryButton
             // 
-            connectDevice.AutoToolTip = false;
-            connectDevice.BackColor = SystemColors.MenuHighlight;
-            connectDevice.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            connectDevice.DropDownButtonWidth = 0;
-            connectDevice.ForeColor = Color.Red;
-            connectDevice.Image = (Image)resources.GetObject("connectDevice.Image");
-            connectDevice.ImageTransparentColor = Color.Magenta;
-            connectDevice.Name = "connectDevice";
-            connectDevice.Size = new Size(95, 20);
-            connectDevice.Text = "Connect Device";
-            connectDevice.ToolTipText = "If you have connected a Kindle device after opening the app, you can press this button to have the app recognize it so you can transfer the covers directly to the device.";
-            connectDevice.Visible = false;
+            selectLibraryButton.AutoSize = true;
+            selectLibraryButton.BackgroundImage = Properties.Resources._47988_folder_icon;
+            selectLibraryButton.BackgroundImageLayout = ImageLayout.Stretch;
+            selectLibraryButton.Location = new Point(771, 36);
+            selectLibraryButton.Name = "selectLibraryButton";
+            selectLibraryButton.Size = new Size(23, 23);
+            selectLibraryButton.TabIndex = 0;
+            toolTip1.SetToolTip(selectLibraryButton, "Find the Calibre library in your disk");
+            selectLibraryButton.UseVisualStyleBackColor = true;
             // 
             // MainScreen
             // 
@@ -274,19 +284,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(813, 528);
+            Controls.Add(label1);
+            Controls.Add(selectLibraryButton);
+            Controls.Add(libraryPath);
             Controls.Add(statusStrip1);
             Controls.Add(transferButton);
             Controls.Add(gitHubLinkLabel);
             Controls.Add(generateCoversButton);
             Controls.Add(groupBox1);
-            Controls.Add(selectLibraryButton);
-            Controls.Add(libraryPath);
-            Controls.Add(label1);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "MainScreen";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Kindle Cover Fixer";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -302,7 +314,6 @@
 
         private Label label1;
         private TextBox libraryPath;
-        private Button selectLibraryButton;
         private FolderBrowserDialog folderBrowserDialog1;
         private TextBox bookListPath;
         private GroupBox groupBox1;
@@ -325,5 +336,6 @@
         private ToolStripStatusLabel separatorLeft;
         private ToolTip toolTip1;
         private ToolStripSplitButton connectDevice;
+        private Button selectLibraryButton;
     }
 }
