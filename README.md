@@ -3,8 +3,10 @@
 ## Features
 
 - Fix your missing ebook covers in your Kindle library
-- Send the fixed images to your Kindle Scribe device in one click.
+- Send the fixed images to your Kindle device in one click.
 - You won't have to do anything else to enjoy your covers again.
+
+  THIS APPLICATION IS COMPATIBLE WITH ALL KINDLE MODELS.
 
 ## How to run the app
 - You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases/latest
@@ -12,7 +14,7 @@
 (This application is compatible from Windows 7 to the last Windows version)
 
 ## How to use the application
-- The first thing to do is transfer the books from our caliber library to the Kindle device
+- The first thing to do is transfer the books from our calibre library to the Kindle device
 - Disconnect the device and wait for it to load the complete library
 - With the Kindle device connected to the internet, wait for the following image to appear as the cover image of our ebooks
 
@@ -26,7 +28,9 @@
 - Click on "Generate covers" button
 - When the progress is complete, a new window will appear allowing you to open the output directory with the corrected covers.
     - If you click on OK. the EXPORTED directory will open. This directory contains all the covers with their respective special names.   
-- A new button will now have appeared to the left of the "Generate covers" button. If you press it while the Kindle Scribe is connected to the PC, the application will automatically transfer all the covers to the correct directory.
+- A new button will now have appeared to the left of the "Generate covers" button.
+- If you connected your Kindle to your PC before opening the app, you can press the "Transfer to Kindle" button and the app will transfer the newly generated covers to your device automatically.
+- If you haven't connected your Kindle before opening the app, you can connect it and have it recognized by the app by pressing the "Connect Device" button.     
 - Now, you can disconnect the Kindle Scribe from your computer. The library on your Kindle have the covers fixed!
 
 ## Modify the application yourself
@@ -43,13 +47,24 @@ TO
 This way, if you upload a new release, the versions will be checked from your own repository. You will also have to modify the MainScreen function. Exactly the variable versionLabel.Text. So that it works with your own version.
 
 ## Compatible devices
-At this time, this application is only tested on Kindle Scribe. In next updates, we will test it on:
-- Kindle Paperwhite 7º Gen
-- Kindle Paperwhite 11º Gen
-- Kindle Oasis 10º Gen
-
-> We do not have any more Kindle devices to test. If you want to participate in the development, contact me at: alruad@gmail.com
-
-## Next steps
-- Add compatibility to some another Kindle devices
-- Add the functionality to automatically transfer fixed covers to the Kindle device. --> DONE
+- Kindle Scribe
+- Kindle Oasis (10. gen)
+- Kindle Oasis (9. gen)
+- Kindle Oasis (8. gen)
+- Kindle Paperwhite (11. gen)
+- Kindle Paperwhite (10. gen)
+- Kindle Paperwhite (7. gen)
+- Kindle Paperwhite (6. gen)
+- Kindle Paperwhite (5. gen)
+- Kindle (11. gen)
+- Kindle (10. gen)
+- Kindle (8. gen)
+- Kindle (7. gen)
+- Kindle (5. gen)
+- Kindle (4. gen)
+- Kindle (2. gen)
+- Kindle (1. gen)
+- Kindle Voyage (7. gen)
+- Kindle Touch (4. gen)
+  
+(ALL MODELS)
