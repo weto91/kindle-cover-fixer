@@ -59,5 +59,35 @@ namespace Kindle_Cover_Fixer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _291716_github_logo_social_network_social_icon {
+            get {
+                object obj = ResourceManager.GetObject("291716_github_logo_social network_social_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4375126_logo_usb_icon {
+            get {
+                object obj = ResourceManager.GetObject("4375126_logo_usb_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _48532_warning_icon {
+            get {
+                object obj = ResourceManager.GetObject("48532_warning_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

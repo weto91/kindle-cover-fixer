@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             label1 = new Label();
             libraryPath = new TextBox();
@@ -47,8 +48,13 @@
             transferButton = new Button();
             statusStrip1 = new StatusStrip();
             progressBarTransfer = new ToolStripProgressBar();
+            separatorLeft = new ToolStripStatusLabel();
+            deviceName = new ToolStripStatusLabel();
+            separatorRight = new ToolStripStatusLabel();
             versionLabel = new ToolStripStatusLabel();
             updateButton = new ToolStripSplitButton();
+            toolTip1 = new ToolTip(components);
+            connectDevice = new ToolStripSplitButton();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -69,6 +75,7 @@
             libraryPath.Name = "libraryPath";
             libraryPath.Size = new Size(594, 23);
             libraryPath.TabIndex = 1;
+            toolTip1.SetToolTip(libraryPath, "This is your Calibre library");
             // 
             // selectLibraryButton
             // 
@@ -77,6 +84,7 @@
             selectLibraryButton.Size = new Size(96, 23);
             selectLibraryButton.TabIndex = 2;
             selectLibraryButton.Text = "Seleccionar";
+            toolTip1.SetToolTip(selectLibraryButton, "Find the Calibre library in your disk");
             selectLibraryButton.UseVisualStyleBackColor = true;
             selectLibraryButton.Click += selectLibraryButton_Click;
             // 
@@ -110,6 +118,7 @@
             generateCoversButton.Size = new Size(105, 23);
             generateCoversButton.TabIndex = 5;
             generateCoversButton.Text = "Generate covers";
+            toolTip1.SetToolTip(generateCoversButton, "Generate new covers for the books in library.");
             generateCoversButton.UseVisualStyleBackColor = true;
             generateCoversButton.Click += generateCoversButton_Click;
             // 
@@ -165,12 +174,15 @@
             // gitHubLinkLabel
             // 
             gitHubLinkLabel.AutoSize = true;
-            gitHubLinkLabel.Location = new Point(12, 484);
+            gitHubLinkLabel.ImageAlign = ContentAlignment.MiddleLeft;
+            gitHubLinkLabel.Location = new Point(18, 480);
             gitHubLinkLabel.Name = "gitHubLinkLabel";
             gitHubLinkLabel.Size = new Size(152, 15);
             gitHubLinkLabel.TabIndex = 7;
             gitHubLinkLabel.TabStop = true;
             gitHubLinkLabel.Text = "https://github.com/weto91";
+            gitHubLinkLabel.TextAlign = ContentAlignment.MiddleLeft;
+            toolTip1.SetToolTip(gitHubLinkLabel, "Developer GitHub page.");
             gitHubLinkLabel.LinkClicked += gitHubLinkLabel_LinkClicked;
             // 
             // transferButton
@@ -181,14 +193,15 @@
             transferButton.Size = new Size(164, 23);
             transferButton.TabIndex = 8;
             transferButton.Text = "Transfer Covers to Kindle Scribe";
+            toolTip1.SetToolTip(transferButton, "Send the generated covers to the Kindle");
             transferButton.UseVisualStyleBackColor = true;
             transferButton.Visible = false;
             transferButton.Click += transferButton_Click;
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { progressBarTransfer, versionLabel, updateButton });
-            statusStrip1.Location = new Point(0, 517);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { progressBarTransfer, separatorLeft, deviceName, connectDevice, separatorRight, versionLabel, updateButton });
+            statusStrip1.Location = new Point(0, 506);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(813, 22);
             statusStrip1.TabIndex = 10;
@@ -200,6 +213,24 @@
             progressBarTransfer.Size = new Size(100, 16);
             progressBarTransfer.Step = 1;
             // 
+            // separatorLeft
+            // 
+            separatorLeft.Margin = new Padding(25, 3, 0, 2);
+            separatorLeft.Name = "separatorLeft";
+            separatorLeft.Size = new Size(0, 17);
+            // 
+            // deviceName
+            // 
+            deviceName.Image = Properties.Resources._4375126_logo_usb_icon;
+            deviceName.Name = "deviceName";
+            deviceName.Size = new Size(16, 17);
+            // 
+            // separatorRight
+            // 
+            separatorRight.Name = "separatorRight";
+            separatorRight.Size = new Size(454, 17);
+            separatorRight.Spring = true;
+            // 
             // versionLabel
             // 
             versionLabel.Name = "versionLabel";
@@ -207,26 +238,42 @@
             // 
             // updateButton
             // 
-            updateButton.BackColor = SystemColors.ButtonFace;
-            updateButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            updateButton.BackColor = SystemColors.ActiveCaption;
             updateButton.DropDownButtonWidth = 0;
             updateButton.ForeColor = Color.Red;
-            updateButton.ImageScaling = ToolStripItemImageScaling.None;
+            updateButton.Image = Properties.Resources._48532_warning_icon;
+            updateButton.ImageAlign = ContentAlignment.MiddleLeft;
             updateButton.ImageTransparentColor = Color.Magenta;
             updateButton.Margin = new Padding(5, 2, 0, 0);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(54, 20);
+            updateButton.Size = new Size(70, 20);
             updateButton.Text = "UPDATE";
-            updateButton.TextImageRelation = TextImageRelation.TextAboveImage;
+            updateButton.TextAlign = ContentAlignment.MiddleRight;
+            updateButton.ToolTipText = "You have an outdated version of the application. Click on this button and a link will open in your browser to download the most recent version";
             updateButton.Visible = false;
             updateButton.ButtonClick += updateButton_ButtonClick;
+            // 
+            // connectDevice
+            // 
+            connectDevice.AutoToolTip = false;
+            connectDevice.BackColor = SystemColors.MenuHighlight;
+            connectDevice.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            connectDevice.DropDownButtonWidth = 0;
+            connectDevice.ForeColor = Color.Red;
+            connectDevice.Image = (Image)resources.GetObject("connectDevice.Image");
+            connectDevice.ImageTransparentColor = Color.Magenta;
+            connectDevice.Name = "connectDevice";
+            connectDevice.Size = new Size(95, 20);
+            connectDevice.Text = "Connect Device";
+            connectDevice.ToolTipText = "If you have connected a Kindle device after opening the app, you can press this button to have the app recognize it so you can transfer the covers directly to the device.";
+            connectDevice.Visible = false;
             // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(813, 539);
+            ClientSize = new Size(813, 528);
             Controls.Add(statusStrip1);
             Controls.Add(transferButton);
             Controls.Add(gitHubLinkLabel);
@@ -273,5 +320,10 @@
         private ToolStripProgressBar progressBarTransfer;
         private ToolStripStatusLabel versionLabel;
         private ToolStripSplitButton updateButton;
+        private ToolStripStatusLabel deviceName;
+        private ToolStripStatusLabel separatorRight;
+        private ToolStripStatusLabel separatorLeft;
+        private ToolTip toolTip1;
+        private ToolStripSplitButton connectDevice;
     }
 }
