@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eM9uV2GzWbL4TDojZ4XFbr9WhXQVhgoRwhtscMmQkUOpc//me+qCvX7uFFh2WgK6Vxn9NdPl7uL3cc0P9OKoTQ==",
+  "dgSpecHash": "vyibumVjazhcyODHtzoGckQTc3kmgNyEzf1IFC/yh9xTeJ0/nCSJwmJ2wrfmL1f85TyECZzna2GEVt8MCHOWRQ==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
+  "projectFilePath": "D:\\Documents\\PROYECTOS\\VISUAL STUDIO\\Kindle Cover Fixer\\weto91\\kindle-cover-fixer\\Kindle Cover Fixer\\Kindle Cover Fixer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alrua\\.nuget\\packages\\mediadevices\\1.10.0\\mediadevices.1.10.0.nupkg.sha512",
     "C:\\Users\\alrua\\.nuget\\packages\\octokit\\9.0.0\\octokit.9.0.0.nupkg.sha512"

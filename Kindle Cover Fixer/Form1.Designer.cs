@@ -164,7 +164,7 @@
             // 
             manualToolStripMenuItem.Name = "manualToolStripMenuItem";
             manualToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.H;
-            manualToolStripMenuItem.Size = new Size(180, 22);
+            manualToolStripMenuItem.Size = new Size(153, 22);
             manualToolStripMenuItem.Text = "Manual";
             manualToolStripMenuItem.Click += manualToolStripMenuItem_Click;
             // 
@@ -237,11 +237,12 @@
             connectDevice.Text = "Connect device";
             connectDevice.ToolTipText = "If you have connected a Kindle device after opening the app, you can press this button to have the app recognize it so you can transfer the covers directly to the device.";
             connectDevice.Visible = false;
+            connectDevice.ButtonClick += connectDevice_ButtonClick_1;
             // 
             // separatorRight
             // 
             separatorRight.Name = "separatorRight";
-            separatorRight.Size = new Size(655, 17);
+            separatorRight.Size = new Size(455, 17);
             separatorRight.Spring = true;
             // 
             // versionLabel
@@ -277,6 +278,7 @@
             selectLibraryButton.TabIndex = 0;
             toolTip1.SetToolTip(selectLibraryButton, "Find the Calibre library in your disk");
             selectLibraryButton.UseVisualStyleBackColor = true;
+            selectLibraryButton.Click += selectLibraryButton_Click_1;
             // 
             // MainScreen
             // 

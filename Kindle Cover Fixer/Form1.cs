@@ -32,56 +32,6 @@ namespace Kindle_Cover_Fixer
             bookList("list");
         }
         // ACTIONS
-        private void checkLibrary()
-        {
-            isLibrary = false;
-            if (libraryPath.Text.Length > 5)
-            {
-                String[] files = Directory.GetFiles(libraryPath.Text);
-                foreach (String file in files)
-                {
-                    if (file.Contains("metadata.db"))
-                    {
-                        isLibrary = true;
-                    }
-                }
-                if (!isLibrary)
-                {
-                    libraryPath.Text = string.Empty;
-                    generateCoversButton.Enabled = false;
-                    string message = "Sorry, the selected path is not a Calibre Library. \r\n \r\n Be sure to select the appropriate caliber library. ";
-                    string caption = "This is not Calibre library";
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
-                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
-                }
-            }
-
-        }
-        private void selectLibraryButton_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-            if (folderBrowserDialog1.SelectedPath.Length > 1)
-            {
-                libraryPath.Text = folderBrowserDialog1.SelectedPath;
-                checkLibrary();
-                if (isLibrary)
-                {
-                    File.WriteAllText(fileLibrary, folderBrowserDialog1.SelectedPath);
-                    bookList("list");
-                    generateCoversButton.Enabled = true;
-                }
-            }
-        }
-        private void createOutputDir()
-        {
-
-            if (Directory.Exists(outputDir))
-            {
-                Directory.Delete(outputDir, true);
-            }
-            Directory.CreateDirectory(outputDir);
-        }
         private void generateCoversButton_Click(object sender, EventArgs e)
         {
             createOutputDir();
@@ -127,8 +77,61 @@ namespace Kindle_Cover_Fixer
         {
             Process.Start("explorer", "https://github.com/weto91/kindle-cover-fixer/releases/tag/working_release");
         }
+        private void selectLibraryButton_Click_1(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            if (folderBrowserDialog1.SelectedPath.Length > 1)
+            {
+                libraryPath.Text = folderBrowserDialog1.SelectedPath;
+                checkLibrary();
+                if (isLibrary)
+                {
+                    File.WriteAllText(fileLibrary, folderBrowserDialog1.SelectedPath);
+                    bookList("list");
+                    generateCoversButton.Enabled = true;
+                }
+            }
+        }
+        private void connectDevice_ButtonClick_1(object sender, EventArgs e)
+        {
+            CheckKindleType();
+        }
 
         // FUNCTIONS
+        private void checkLibrary()
+        {
+            isLibrary = false;
+            if (libraryPath.Text.Length > 5)
+            {
+                String[] files = Directory.GetFiles(libraryPath.Text);
+                foreach (String file in files)
+                {
+                    if (file.Contains("metadata.db"))
+                    {
+                        isLibrary = true;
+                    }
+                }
+                if (!isLibrary)
+                {
+                    libraryPath.Text = string.Empty;
+                    generateCoversButton.Enabled = false;
+                    string message = "Sorry, the selected path is not a Calibre Library. \r\n \r\n Be sure to select the appropriate caliber library. ";
+                    string caption = "This is not Calibre library";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void createOutputDir()
+        {
+
+            if (Directory.Exists(outputDir))
+            {
+                Directory.Delete(outputDir, true);
+            }
+            Directory.CreateDirectory(outputDir);
+        }
         private void calibreFolder()
         {
             String homeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -342,10 +345,6 @@ namespace Kindle_Cover_Fixer
                 progressBarTransfer.Value = progressBarTransfer.Value + progressBarTransfer.Step;
                 bookCounter++;
             }
-        }
-        private void connectDevice_ButtonClick(object sender, EventArgs e)
-        {
-            CheckKindleType();
         }
     }
 }
