@@ -8,149 +8,148 @@ namespace Kindle_Cover_Fixer
 {
     public partial class MainScreen : Form
     {
-        string userDir = String.Empty;
-        string outputDir = String.Empty;
-        String fileLibrary = Environment.CurrentDirectory + @"\library.kcf";
-        bool isLibrary = false;
+        private string userDir = string.Empty;
+        private string fileLibrary = string.Empty;
+        private bool isLibrary = false;
+
+        public string UserDir { get => userDir; set => userDir = value; }
+        public string OutputDir { get; set; } = string.Empty;
+        public string FileLibrary { get => fileLibrary; set => fileLibrary = value; }
+        public bool IsLibrary { get => isLibrary; set => isLibrary = value; }
+
         public MainScreen()
         {
             if (Environment.GetEnvironmentVariable("USERPROFILE") != null)
             {
-                userDir = Environment.GetEnvironmentVariable("LOCALAPPDATA");
-                outputDir = userDir + @"\KindleCoverFixer\OUTPUT";
+                #pragma warning disable CS8601
+                UserDir = Environment.GetEnvironmentVariable("LOCALAPPDATA");
+                #pragma warning restore CS8601 
+                OutputDir = UserDir + @"\KindleCoverFixer\OUTPUT";
+                FileLibrary = UserDir + @"\KindleCoverFixer\library.kcf";
             }
             else
             {
-                outputDir = Environment.CurrentDirectory + @"\OUTPUT";
+                OutputDir = Environment.CurrentDirectory + @"\OUTPUT";
+                FileLibrary = Environment.CurrentDirectory + @"\library.kcf";
             }
             InitializeComponent();
             versionLabel.Text = "Version 1.5";
-            calibreFolder();
+            CreateLibraryFile();
             CheckGitHubNewerVersion();
             CheckKindleType();
-            createOutputDir();
-            bookList("list");
+            CreateOutputDir();
+            BookList("list");
         }
         // ACTIONS
-        private void generateCoversButton_Click(object sender, EventArgs e)
+        private void GenerateCoversButton_Click(object sender, EventArgs e)
         {
-            createOutputDir();
-            bookList("generate");
+            CreateOutputDir();
+            BookList("generate");
         }
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void openExportedDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenExportedDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(outputDir))
+            if (Directory.Exists(OutputDir))
             {
-                OpenFolder(outputDir);
+                OpenFolder(OutputDir);
             }
             else
             {
                 string message = "This directory will be created after the process execution.";
                 string caption = "Directory does not exists yet";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result;
-                result = MessageBox.Show(message, caption, buttons);
+                MessageBox.Show(message, caption, buttons);
             }
         }
-        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HelpScreen frm = new HelpScreen();
+            HelpScreen frm = new();
             frm.Show();
             this.Hide();
         }
-        private void gitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("explorer", "http://github.com/weto91");
         }
-        private void transferButton_Click(object sender, EventArgs e)
+        private void TransferButton_Click(object sender, EventArgs e)
         {
             groupBox1.Text = "Covers transfered";
-            bookListPath.Text = String.Empty;
-            transferFilesToKindle();
-            bookListPath.AppendText("\n\r" + String.Empty + "\n\r" + String.Empty + "\n\r" + "All Covers transferred. Enjoy!");
+            bookListPath.Text = string.Empty;
+            TransferFilesToKindle();
+            bookListPath.AppendText("\n\r" + string.Empty + "\n\r" + string.Empty + "\n\r" + "All Covers transferred. Enjoy!");
         }
-        private void updateButton_ButtonClick(object sender, EventArgs e)
+        private void UpdateButton_ButtonClick(object sender, EventArgs e)
         {
             Process.Start("explorer", "https://github.com/weto91/kindle-cover-fixer/releases/tag/working_release");
         }
-        private void selectLibraryButton_Click_1(object sender, EventArgs e)
+        private void SelectLibraryButton_Click_1(object sender, EventArgs e)
         {
             folderBrowserDialog1.ShowDialog();
             if (folderBrowserDialog1.SelectedPath.Length > 1)
             {
                 libraryPath.Text = folderBrowserDialog1.SelectedPath;
-                checkLibrary();
-                if (isLibrary)
+                CheckLibrary();
+                if (IsLibrary)
                 {
-                    File.WriteAllText(fileLibrary, folderBrowserDialog1.SelectedPath);
-                    bookList("list");
+                    File.WriteAllText(FileLibrary, folderBrowserDialog1.SelectedPath);
+                    BookList("list");
                     generateCoversButton.Enabled = true;
                 }
             }
         }
-        private void connectDevice_ButtonClick_1(object sender, EventArgs e)
+        private void ConnectDevice_ButtonClick_1(object sender, EventArgs e)
         {
             CheckKindleType();
         }
-
         // FUNCTIONS
-        private void checkLibrary()
+        private void CheckLibrary()
         {
-            isLibrary = false;
+            IsLibrary = false;
             if (libraryPath.Text.Length > 5)
             {
-                String[] files = Directory.GetFiles(libraryPath.Text);
-                foreach (String file in files)
+                string[] files = Directory.GetFiles(libraryPath.Text);
+                foreach (string file in files)
                 {
                     if (file.Contains("metadata.db"))
                     {
-                        isLibrary = true;
+                        IsLibrary = true;
                     }
                 }
-                if (!isLibrary)
+                if (!IsLibrary)
                 {
                     libraryPath.Text = string.Empty;
                     generateCoversButton.Enabled = false;
                     string message = "Sorry, the selected path is not a Calibre Library. \r\n \r\n Be sure to select the appropriate caliber library. ";
                     string caption = "This is not Calibre library";
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
-                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
+                    MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
                 }
             }
         }
-        private void createOutputDir()
+        private void CreateOutputDir()
         {
 
-            if (Directory.Exists(outputDir))
+            if (Directory.Exists(OutputDir))
             {
-                Directory.Delete(outputDir, true);
+                Directory.Delete(OutputDir, true);
             }
-            Directory.CreateDirectory(outputDir);
+            Directory.CreateDirectory(OutputDir);
         }
-        private void calibreFolder()
+        private void CreateLibraryFile()
         {
-            String homeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            if (File.Exists(fileLibrary))
+            if (!File.Exists(FileLibrary))
             {
-                libraryPath.Text = File.ReadAllText(fileLibrary);
-                generateCoversButton.Enabled = true;
-                checkLibrary();
-            }
-            else if (Directory.Exists(homeDir + @"\Documents\Calibre Library"))
-            {
-                libraryPath.Text = homeDir + @"\Documents\Calibre Library";
-                generateCoversButton.Enabled = true;
+                FileStream fs = File.Create(FileLibrary);
+                fs.Close();
             }
         }
         private void CheckKindleType()
         {
 
-            deviceName.Text = String.Empty;
+            deviceName.Text = string.Empty;
             var devices = MediaDevice.GetDevices();
             DriveInfo[] drives = DriveInfo.GetDrives();
             bool otherKindle = false;
@@ -161,7 +160,7 @@ namespace Kindle_Cover_Fixer
                     otherKindle = true;
                 }
             }
-            if (devices.Count() > 0)
+            if (devices.Any())
             {
                 if (devices.First().FriendlyName == "Kindle Scribe")
                 {
@@ -184,39 +183,35 @@ namespace Kindle_Cover_Fixer
                 deviceName.Text = "Kindle not connected";
                 connectDevice.Visible = true;
             }
-
-
-            //var device = devicess.First(d => d.FriendlyName == "Kindle Scribe");
         }
         private async void CheckGitHubNewerVersion()
         {
-            GitHubClient client = new GitHubClient(new ProductHeaderValue("Kindle_Cover_Fixer"));
+            GitHubClient client = new(new ProductHeaderValue("Kindle_Cover_Fixer"));
             var releases = await client.Repository.Release.GetLatest("weto91", "kindle-cover-fixer");
             var latest = releases.Name;
-            String local = versionLabel.Text;
             float latestVersion = float.Parse(latest.ToString().Split(' ')[1]);
             float localVersion = float.Parse(versionLabel.Text.Split(' ')[1]);
             if (latestVersion > localVersion)
             {
-                versionLabel.Text = versionLabel.Text + " (New version available)";
+                versionLabel.Text += " (New version available)";
                 updateButton.Visible = true;
             }
             else
             {
-                versionLabel.Text = versionLabel.Text + " (Up to date)";
+                versionLabel.Text += " (Up to date)";
             }
         }
-        private void bookList(string action)
+        private void BookList(string action)
         {
-            if (isLibrary)
+            if (IsLibrary)
             {
-                String[] directoryAuthors = Directory.GetDirectories(libraryPath.Text);
-                foreach (String author in directoryAuthors)
+                string[] directoryAuthors = Directory.GetDirectories(libraryPath.Text);
+                foreach (string author in directoryAuthors)
                 {
                     if (!author.Contains("caltrash"))
                     {
-                        String[] directoryBooks = Directory.GetDirectories(author);
-                        foreach (String book in directoryBooks)
+                        string[] directoryBooks = Directory.GetDirectories(author);
+                        foreach (string book in directoryBooks)
                         {
                             if (action == "list")
                             {
@@ -224,21 +219,21 @@ namespace Kindle_Cover_Fixer
                             }
                             if (action == "generate")
                             {
-                                String uuid = String.Empty;
-                                String image = String.Empty;
-                                String[] fileBooks = Directory.GetFiles(book);
-                                foreach (String file in fileBooks)
+                                string uuid = string.Empty;
+                                string image = string.Empty;
+                                string[] fileBooks = Directory.GetFiles(book);
+                                foreach (string file in fileBooks)
                                 {
                                     if (file.Contains("metadata.opf"))
                                     {
-                                        string[] lines = System.IO.File.ReadAllLines(file);
+                                        string[] lines = File.ReadAllLines(file);
                                         foreach (string line in lines)
                                         {
                                             if (line.Contains("uuid_id"))
                                             {
                                                 //<dc:identifier opf:scheme="uuid" id="uuid_id">f97c1f8a-7ad3-42e2-a928-5f9f5b0a200d</dc:identifier>
-                                                String[] uuida = line.Split('>');
-                                                String[] uuidb = uuida[1].Split("<");
+                                                string[] uuida = line.Split('>');
+                                                string[] uuidb = uuida[1].Split("<");
                                                 uuid = uuidb[0];
                                             }
                                         }
@@ -248,7 +243,7 @@ namespace Kindle_Cover_Fixer
                                         image = file;
                                     }
                                 }
-                                File.Copy(image, outputDir + @"\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
+                               File.Copy(image, OutputDir + @"\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
                             }
                         }
                     }
@@ -263,7 +258,7 @@ namespace Kindle_Cover_Fixer
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    OpenFolder(outputDir);
+                    OpenFolder(OutputDir);
                 }
                 transferButton.Visible = true;
                 CheckKindleType();
@@ -274,11 +269,11 @@ namespace Kindle_Cover_Fixer
 
             }
         }
-        private void OpenFolder(string folderPath)
+        private static void OpenFolder(string folderPath)
         {
             if (Directory.Exists(folderPath))
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo
+                ProcessStartInfo startInfo = new()
                 {
                     Arguments = folderPath,
                     FileName = "explorer.exe"
@@ -290,25 +285,22 @@ namespace Kindle_Cover_Fixer
                 MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
             }
         }
-        private void transferScribe(string fileToCopy, string fileName)
+        private static void TransferScribe(string fileToCopy, string fileName)
         {
             var devicess = MediaDevice.GetDevices();
-            using (var device = devicess.First(d => d.FriendlyName == "Kindle Scribe"))
+            using var device = devicess.First(d => d.FriendlyName == "Kindle Scribe");
+            device.Connect();
+            var objects = device.FunctionalObjects(FunctionalCategory.Storage);
+            MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
+            device.DeleteFile(@"\" + deviceInfo.Description + @"\system\thumbnails\" + fileName);
+            using (FileStream stream = File.OpenRead(fileToCopy))
             {
-                device.Connect();
-                var objects = device.FunctionalObjects(FunctionalCategory.Storage);
-                MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
-                device.DeleteFile(@"\" + deviceInfo.Description + @"\system\thumbnails\" + fileName);
-                using (FileStream stream = File.OpenRead(fileToCopy))
-                {
-                    device.UploadFile(stream, @"\" + deviceInfo.Description + @"\system\thumbnails\" + fileName);
-                }
-                device.Disconnect();
+                device.UploadFile(stream, @"\" + deviceInfo.Description + @"\system\thumbnails\" + fileName);
             }
+            device.Disconnect();
         }
-        private void transferOther(string fileToCopy, string fileName)
+        private static void TransferOther(string fileToCopy, string fileName)
         {
-            String driveToWrite = string.Empty;
             DriveInfo[] drives = DriveInfo.GetDrives();
             foreach (DriveInfo drive in drives)
             {
@@ -318,31 +310,31 @@ namespace Kindle_Cover_Fixer
                 }
             }
         }
-        private void transferFiles(string fileToCopy, string fileName)
+        private void TransferFiles(string fileToCopy, string fileName)
         {
             if (deviceName.Text == "Kindle (Other)")
             {
-                transferOther(fileToCopy, fileName);
+                TransferOther(fileToCopy, fileName);
             }
             else if (deviceName.Text == "Kindle Scribe")
             {
-                transferScribe(fileToCopy, fileName);
+                TransferScribe(fileToCopy, fileName);
             }
         }
-        private void transferFilesToKindle()
+        private void TransferFilesToKindle()
         {
-            String[] covers = Directory.GetFiles(outputDir);
+            string[] covers = Directory.GetFiles(OutputDir);
             progressBarTransfer.Maximum = covers.Length;
             progressBarTransfer.Value = 0;
             int bookCounter = 1;
-            foreach (String cover in covers)
+            foreach (string cover in covers)
             {
-                String[] namea = cover.Split(".jpg");
-                String[] nameb = namea[0].Split(@"\thumbnail");
+                string[] namea = cover.Split(".jpg");
+                string[] nameb = namea[0].Split(@"\thumbnail");
                 string name = "thumbnail" + nameb[1] + ".jpg";
                 bookListPath.AppendText("[" + bookCounter.ToString() + "/" + covers.Length.ToString() + "] " + name + "\r\n");
-                transferFiles(cover, name);
-                progressBarTransfer.Value = progressBarTransfer.Value + progressBarTransfer.Step;
+                TransferFiles(cover, name);
+                progressBarTransfer.Value += progressBarTransfer.Step;
                 bookCounter++;
             }
         }

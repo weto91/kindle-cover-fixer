@@ -113,7 +113,7 @@
             generateCoversButton.Text = "Generate covers";
             toolTip1.SetToolTip(generateCoversButton, "Generate new covers for the books in library.");
             generateCoversButton.UseVisualStyleBackColor = true;
-            generateCoversButton.Click += generateCoversButton_Click;
+            generateCoversButton.Click += GenerateCoversButton_Click;
             // 
             // menuStrip1
             // 
@@ -138,7 +138,7 @@
             openExportedDirectoryToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
             openExportedDirectoryToolStripMenuItem.Size = new Size(242, 22);
             openExportedDirectoryToolStripMenuItem.Text = "Open exported directory";
-            openExportedDirectoryToolStripMenuItem.Click += openExportedDirectoryToolStripMenuItem_Click;
+            openExportedDirectoryToolStripMenuItem.Click += OpenExportedDirectoryToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -151,7 +151,7 @@
             closeToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.C;
             closeToolStripMenuItem.Size = new Size(242, 22);
             closeToolStripMenuItem.Text = "Close";
-            closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
+            closeToolStripMenuItem.Click += CloseToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -166,7 +166,7 @@
             manualToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.H;
             manualToolStripMenuItem.Size = new Size(153, 22);
             manualToolStripMenuItem.Text = "Manual";
-            manualToolStripMenuItem.Click += manualToolStripMenuItem_Click;
+            manualToolStripMenuItem.Click += ManualToolStripMenuItem_Click;
             // 
             // gitHubLinkLabel
             // 
@@ -180,7 +180,7 @@
             gitHubLinkLabel.Text = "https://github.com/weto91";
             gitHubLinkLabel.TextAlign = ContentAlignment.MiddleLeft;
             toolTip1.SetToolTip(gitHubLinkLabel, "Developer GitHub page.");
-            gitHubLinkLabel.LinkClicked += gitHubLinkLabel_LinkClicked;
+            gitHubLinkLabel.LinkClicked += GitHubLinkLabel_LinkClicked;
             // 
             // transferButton
             // 
@@ -193,7 +193,7 @@
             toolTip1.SetToolTip(transferButton, "Send the generated covers to the Kindle");
             transferButton.UseVisualStyleBackColor = true;
             transferButton.Visible = false;
-            transferButton.Click += transferButton_Click;
+            transferButton.Click += TransferButton_Click;
             // 
             // statusStrip1
             // 
@@ -237,12 +237,12 @@
             connectDevice.Text = "Connect device";
             connectDevice.ToolTipText = "If you have connected a Kindle device after opening the app, you can press this button to have the app recognize it so you can transfer the covers directly to the device.";
             connectDevice.Visible = false;
-            connectDevice.ButtonClick += connectDevice_ButtonClick_1;
+            connectDevice.ButtonClick += ConnectDevice_ButtonClick_1;
             // 
             // separatorRight
             // 
             separatorRight.Name = "separatorRight";
-            separatorRight.Size = new Size(455, 17);
+            separatorRight.Size = new Size(655, 17);
             separatorRight.Spring = true;
             // 
             // versionLabel
@@ -265,7 +265,7 @@
             updateButton.TextAlign = ContentAlignment.MiddleRight;
             updateButton.ToolTipText = "You have an outdated version of the application. Click on this button and a link will open in your browser to download the most recent version";
             updateButton.Visible = false;
-            updateButton.ButtonClick += updateButton_ButtonClick;
+            updateButton.ButtonClick += UpdateButton_ButtonClick;
             // 
             // selectLibraryButton
             // 
@@ -278,7 +278,7 @@
             selectLibraryButton.TabIndex = 0;
             toolTip1.SetToolTip(selectLibraryButton, "Find the Calibre library in your disk");
             selectLibraryButton.UseVisualStyleBackColor = true;
-            selectLibraryButton.Click += selectLibraryButton_Click_1;
+            selectLibraryButton.Click += SelectLibraryButton_Click_1;
             // 
             // MainScreen
             // 
