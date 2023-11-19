@@ -34,10 +34,10 @@ namespace Kindle_Cover_Fixer
             }
             InitializeComponent();
             versionLabel.Text = "Version 1.6";
+            CreateOutputDir();
             CreateLibraryFile();
             CheckGitHubNewerVersion();
-            CheckKindleType();
-            CreateOutputDir();
+            CheckKindleType();          
             BookList("list");
         }
         // ACTIONS
