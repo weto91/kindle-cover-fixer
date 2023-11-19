@@ -33,7 +33,7 @@ namespace Kindle_Cover_Fixer
                 FileLibrary = Environment.CurrentDirectory + @"\library.kcf";
             }
             InitializeComponent();
-            versionLabel.Text = "Version 1.5";
+            versionLabel.Text = "Version 1.6";
             CreateLibraryFile();
             CheckGitHubNewerVersion();
             CheckKindleType();
