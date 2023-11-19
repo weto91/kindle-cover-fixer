@@ -24,7 +24,7 @@ namespace Kindle_Cover_Fixer
                 outputDir = Environment.CurrentDirectory + @"\OUTPUT";
             }
             InitializeComponent();
-            versionLabel.Text = "Version 1.4";
+            versionLabel.Text = "Version 1.5";
             calibreFolder();
             CheckGitHubNewerVersion();
             CheckKindleType();
