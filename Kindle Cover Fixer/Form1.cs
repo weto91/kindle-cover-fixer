@@ -243,7 +243,10 @@ namespace Kindle_Cover_Fixer
                                         image = file;
                                     }
                                 }
-                               File.Copy(image, OutputDir + @"\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
+                                if (image != string.Empty) 
+                                {
+                                   File.Copy(image, OutputDir + @"\" + "thumbnail_" + uuid + "_EBOK_portrait.jpg");
+                                }
                             }
                         }
                     }
