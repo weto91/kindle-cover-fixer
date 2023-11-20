@@ -189,7 +189,7 @@
             transferButton.Name = "transferButton";
             transferButton.Size = new Size(164, 23);
             transferButton.TabIndex = 0;
-            transferButton.Text = "Transfer Covers to Kindle Scribe";
+            transferButton.Text = "Transfer covers to Kindle Scribe";
             toolTip1.SetToolTip(transferButton, "Send the generated covers to the Kindle");
             transferButton.UseVisualStyleBackColor = true;
             transferButton.Visible = false;
