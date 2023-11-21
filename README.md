@@ -23,15 +23,17 @@
 
 - Connect the device to the Windows PC
 - Open the application
-- Click on "Select" button and select the Calibre library folder on your HDD (It is normally in the Documents/Calibre library folder)
-- After a few seconds, the complete list of books in the library will appear in the blank square of the application
+- Select the Calibre Library that you want to fix in your kindle.
+- Click on "Find Books" button and :
+- you will see a table with the complete list of books in your library. In this table you can see:
+    - Book nº: A simple accountant.
+    - Book Name: The name of the book
+    - UUID: Universal Unique Identifier
+    - Passed: If the book has UUID and COVER, it will be true and the Cover can be generated. Otherwise, nothing will be done with that book.
 - Click on "Generate covers" button
-- When the progress is complete, a new window will appear allowing you to open the output directory with the corrected covers.
-    - If you click on OK. the EXPORTED directory will open. This directory contains all the covers with their respective special names.   
-- A new button will now have appeared to the left of the "Generate covers" button.
-- If you connected your Kindle to your PC before opening the app, you can press the "Transfer to Kindle" button and the app will transfer the newly generated covers to your device automatically.
-- If you haven't connected your Kindle before opening the app, you can connect it and have it recognized by the app by pressing the "Connect Device" button.     
-- Now, you can disconnect the Kindle Scribe from your computer. The library on your Kindle have the covers fixed!
+- When the progress is complete, a new window will appear allowing you to transfer files directly to your Kindle device.
+	- Please note that to transfer files to your device, it must be connected via USB to the PC. The application will detect it automatically.   
+- Now, you can disconnect the device from your computer. The library on your Kindle have the covers fixed!
 
 ## Modify the application yourself
 You can modify the application as you want. This is the IDE that i use:
