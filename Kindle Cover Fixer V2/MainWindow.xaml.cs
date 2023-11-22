@@ -13,6 +13,7 @@ using System.Linq;
 using Newtonsoft.Json.Serialization;
 using System.Diagnostics.CodeAnalysis;
 using System.Timers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -258,20 +259,14 @@ namespace Kindle_Cover_Fixer_V2
             // log file
             string text = @"Started on " + System.DateTime.Now.ToString();
             File.WriteAllText(UsefulVariables.LogFile(), text);
-            try
-            {
-                StreamWriter sw = new(UsefulVariables.LogFile());
-                sw.WriteLine("Started at: " + DateTime.Now);
-                sw.WriteLine("OS version: " + Environment.OSVersion);
-                sw.WriteLine("Process ID: " + Environment.ProcessId);
-                sw.WriteLine("System memory page: " + Environment.SystemPageSize);
-                sw.WriteLine("Version: " + Environment.Version);
-                sw.WriteLine("KCF Path: " + Environment.ProcessPath);
-                sw.WriteLine("KCF Version: " + UsefulVariables.AppVersion);
-                sw.WriteLine("#############################################################");
-                sw.Close();
-            }
-                finally { }       
+            LogLine("INFO", "Started at: " + DateTime.Now);
+            LogLine("INFO", "OS version: " + Environment.OSVersion);
+            LogLine("INFO", "Process ID: " + Environment.ProcessId);
+            LogLine("INFO", "System memory page: " + Environment.SystemPageSize);
+            LogLine("INFO", "Version: " + Environment.Version);
+            LogLine("INFO", "KCF Path: " + Environment.ProcessPath);
+            LogLine("INFO", "KCF Version: " + UsefulVariables.AppVersion);
+            LogLine("INFO", "#############################################################");     
         }
         // Define the User information DataGrid structure
         private void DataGridUserPreparation()
@@ -367,7 +362,6 @@ namespace Kindle_Cover_Fixer_V2
             libraryPath.Width = libraryPathDim;
             statusStripGrid.Width = e.NewSize.Width - 30;
             PathColumnDimension();
-            LogLine("[INFO]", "Window size changed to: " + mainWindow.Width + "X" + mainWindow.Height);
         }
         // Add to ComboBox the available libraries on your computer
         private void ListAllLibraries()
