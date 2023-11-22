@@ -9,20 +9,32 @@ namespace Kindle_Cover_Fixer_V2
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.0";
-        // Determine the %APPDATA% folder
+        public const string AppVersion = "2.1";
+        // Determine the output folder path
         public static string OutputFolder()
         {
+            string output = getKindleCoverFixerPath() + @"\Output";
+            return output;
+        }
+        // Determine the log file path
+        public static string LogFile()
+        {
+            string output = getKindleCoverFixerPath() + @"\Kindle_Cover_Fixer.log";
+            return output;
+        }
+        // Determine the Kindle Cover Fixer folder path
+        public static string getKindleCoverFixerPath()
+        {
             string? appData = Environment.GetEnvironmentVariable("APPDATA");
-            string result = appData + @"\Kindle Cover Fixer\Output";
-            if(appData != null) 
+            string result = appData + @"\Kindle Cover Fixer";
+            if (appData != null)
             {
                 return result;
             }
             else
             {
-                return Environment.CurrentDirectory + @"\Output";
-            }    
+                return Environment.CurrentDirectory;
+            }
         }
         // Determine where is the Calibre configuration file
         public static string[] CalibreLibraries()
