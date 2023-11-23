@@ -10,9 +10,6 @@
     <a>
 		<img alt="Issues" src="https://img.shields.io/github/issues/weto91/kindle-cover-fixer?color=0088ff" />
     </a>
-	<a>
-		<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/weto91/kindle-cover-fixer?color=0088ff" />
-    </a>
     <a>
 		<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/weto91/kindle-cover-fixer">    
     </a>    
