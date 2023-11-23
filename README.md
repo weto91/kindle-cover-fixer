@@ -1,4 +1,34 @@
 ![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/Images/Cover.png)
+
+<p align="center">
+	<a>    
+		<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/weto91/kindle-cover-fixer/total">
+	</a>
+	<a>
+		<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/weto91/kindle-cover-fixer" />
+	</a>
+    <a>
+		<img alt="Issues" src="https://img.shields.io/github/issues/weto91/kindle-cover-fixer?color=0088ff" />
+    </a>
+	<a>
+		<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/weto91/kindle-cover-fixer?color=0088ff" />
+    </a>
+    <a>
+		<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/weto91/kindle-cover-fixer">    
+    </a>    
+    <a>
+		<img alt="Github commits from last release" src="https://img.shields.io/github/commits-since/weto91/kindle-cover-fixer/latest/Develop">
+    </a>
+    <a>
+		<img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/weto91/kindle-cover-fixer">
+    </a>
+    <a>
+		<img alt="GitHub Release Date - Published_At" src="https://img.shields.io/github/release-date/weto91/kindle-cover-fixer">
+    </a>
+    <br />
+    <br />
+</p>
+
 # Kindle Cover Fixer
 
 ## Features
