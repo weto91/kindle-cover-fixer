@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kindle_Cover_Fixer_V2"
         mc:Ignorable="d"
-        Title="Kindle Cover Fixer" MinHeight="680" MinWidth="1000" Height="680" Width="1000" SizeChanged="OnWindowSizeChanged" Loaded="OnWindowLoaded" ContentRendered="MainWindowRendered">
+        Title="Kindle Cover Fixer" MinHeight="680" MinWidth="1000" Height="680" Width="1000" SizeChanged="OnWindowSizeChanged" Loaded="OnWindowLoaded" ContentRendered="MainWindowRendered" Closing="MainWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -16,6 +16,7 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="generateButton" Content="Generate Covers" Margin="5,0,5,0" Height="25" Click="GenerateButton_Click" IsEnabled="False" Style="{DynamicResource ButtonKey}"/>
         </StackPanel>
+        <Label Grid.Row="2" Name="resultLabel" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Label   Name="libraryPathLabel" Content="Calibre library:" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>
             <ComboBox x:Name="libraryPath" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>

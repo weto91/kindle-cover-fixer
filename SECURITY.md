@@ -1,7 +1,7 @@
 # Security Policy
 
 ## Supported Versions
-
+:white_check_mark:
 | Version | Supported          |
 | ------- | ------------------ |
 |  2.1    | :white_check_mark: |
