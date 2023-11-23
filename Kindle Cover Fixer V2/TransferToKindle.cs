@@ -1,10 +1,6 @@
 ﻿using MediaDevices;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -17,7 +13,7 @@ namespace Kindle_Cover_Fixer_V2
             string[] covers = Directory.GetFiles(UsefulVariables.OutputFolder());
             Dispatcher.Invoke(() =>
             {
-                runningNow.Content = "Transfering covers...";
+                runningNow.Content = Strings.Transferring; 
                 progressBar.Maximum = covers.Length;
                 progressBar.Value = 0;
             });
@@ -42,7 +38,8 @@ namespace Kindle_Cover_Fixer_V2
             Dispatcher.Invoke(() =>
             {
                 progressBar.Value++;
-                runningNow.Content = "Covers transferred";
+                runningNow.Content = Strings.Transferred; 
+                LogLine("SUCCESS", "All files was transferred to the device.");
             });
         }
         // Check device and start the transfer Task

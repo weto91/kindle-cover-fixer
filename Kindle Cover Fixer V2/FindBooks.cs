@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -15,7 +11,7 @@ namespace Kindle_Cover_Fixer_V2
         private void FindBooksTask()
         {
             resultLabel.Content = String.Empty;
-            runningNow.Content = "Finding books in your library...";
+            runningNow.Content = Strings.Finding;
             //string CalibreLibrary = libraryPath.Text;
             DataGridUser.Items.Clear();
             DataGridSystem.Items.Clear();
@@ -51,19 +47,19 @@ namespace Kindle_Cover_Fixer_V2
                 }
                 if (bookNotPassed > 0)
                 {
-                    resultLabel.Content = @"Can't generate: " + bookNotPassed.ToString() + " of " + DataGridSystem.Items.Count + " cover(s)";
+                    resultLabel.Content = Strings.GeneratingError + bookNotPassed.ToString() + Strings.Of + DataGridSystem.Items.Count + Strings.Covers;
                     LogLine("FAILURE", "Book listing process finished with errors");
                 }
                 else
                 {
-                    resultLabel.Content = @"All cover(s) can be generated, total: " + DataGridSystem.Items.Count + " cover(s)";
+                    resultLabel.Content = Strings.FindFinish + DataGridSystem.Items.Count + Strings.Covers;
                     LogLine("SUCCESS", "Book: listing process finished successfully");
                 }
             }
             connection.Close();
             Thread resize = new(ResizeThread);
             resize.Start();
-            runningNow.Content = "All book listed";
+            runningNow.Content = Strings.BookListed;
             EnableControl(generateButton);
         }
     }

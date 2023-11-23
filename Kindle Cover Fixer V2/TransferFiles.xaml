@@ -19,11 +19,11 @@
         </Grid.RowDefinitions>
         <Button Name="closeBut" Grid.Column="3" Content="Close" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" Width="110" Height="25" Click="close_Click"/>
         <Button Name="transferBut" Grid.Column="2" Content="Transfer files" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="110" Height="25" Click="transferFiles_Click"/>
-        <Label Grid.ColumnSpan="4" Content="All covers have been generated" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label Grid.ColumnSpan="4" Content="At this point you can do three things:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-        <Label Grid.ColumnSpan="4" Content="⦁ Close this window to do nothing (Close)." HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top"/>
-        <Label Grid.ColumnSpan="4" Content="⦁ Transfer files directly to your Kindle (Transfer)" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top"/>
-        <Label Grid.ColumnSpan="4" Content="(To transfer files to your Kindle, it must be connected to your PC.)" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+        <Label Name="TitleTransfer" Grid.ColumnSpan="4" Content="All covers have been generated" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label Name="CanDoThings" Grid.ColumnSpan="4" Content="At this point you can do three things:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <Label Name="ThingOne" Grid.ColumnSpan="4" Content="⦁ Close this window to do nothing (Close)." HorizontalAlignment="Left" Margin="30,70,0,0" VerticalAlignment="Top"/>
+        <Label Name="ThingTwo" Grid.ColumnSpan="4" Content="⦁ Transfer files directly to your Kindle (Transfer)" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top"/>
+        <Label Name="ThingAclaration" Grid.ColumnSpan="4" Content="(To transfer files to your Kindle, it must be connected to your PC.)" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
         <Separator Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="10,180,0,0" VerticalAlignment="Top"/>
     </Grid>
 

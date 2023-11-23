@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows;
@@ -55,10 +51,10 @@ namespace Kindle_Cover_Fixer_V2
             DataGridUser.Columns.Add(col2);
             DataGridUser.Columns.Add(col3);
             // Column header configuration
-            col0.Header = "Book nº";
-            col1.Header = "Book Name";
-            col2.Header = "UUID";
-            col3.Header = "Passed";
+            col0.Header = Strings.BookNumber; //DGUNU
+            col1.Header = Strings.BookName; //DGUNA
+            col2.Header = Strings.BookUuid; //DGUU
+            col3.Header = Strings.BookPassed; //DGUP
             // Bindings with the struct
             col0.Binding = new Binding("FileNumber");
             col1.Binding = new Binding("FileName");
@@ -102,6 +98,7 @@ namespace Kindle_Cover_Fixer_V2
         {
             CheckKindle();
             DisableControl(generateButton);
+            ControlStrings();
             DataGridUserPreparation();
             DataGridSystemPreparation();
             DataGridTransferPreparation();
@@ -113,7 +110,14 @@ namespace Kindle_Cover_Fixer_V2
         private void MainWindowRendered(object sender, EventArgs e)
         {
             PathColumnDimension();
-            runningNow.Content = "Ready";
+            runningNow.Content = Strings.Ready; 
+        }
+        private void ControlStrings()
+        {
+            libraryPathLabel.Content = Strings.CalibreLib;
+            findBooks.Content = Strings.FindBooks;
+            generateButton.Content = Strings.GenerateCovers;
+            mainWindow.Width = mainWindow.ActualWidth + 1; // WorkArround to view correctly the FindBook Buttons
         }
     }
 }

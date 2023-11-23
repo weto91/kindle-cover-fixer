@@ -1,18 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -29,7 +16,13 @@ namespace Kindle_Cover_Fixer_V2
 
         private void TransferFiles_Rendered(object sender, EventArgs e)
         {
-            //this.Width = closeBut.Width + openBut.Width + transferBut.Width +
+            closeBut.Content = Strings.Close;
+            transferBut.Content = Strings.Transfer;
+            TitleTransfer.Content = Strings.TransTitle;
+            CanDoThings.Content = Strings.CanDo;
+            ThingOne.Content = Strings.ThingOne;
+            ThingTwo.Content = Strings.ThingTwo;
+            ThingAclaration.Content = Strings.Aclaration;
         }
 
         private void close_Click(object sender, RoutedEventArgs e)

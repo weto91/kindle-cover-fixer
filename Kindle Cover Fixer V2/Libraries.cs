@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -23,7 +18,7 @@ namespace Kindle_Cover_Fixer_V2
                 {
                     DisableControl(findBooks);
                     DisableControl(generateButton);
-                    MessageBox.Show("Please, check that you have a library correctly configured in Calibre.", "Cannot find Calibre library(s).", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Strings.CheckLibrary, Strings.CheckLibraryTitle, MessageBoxButton.OK, MessageBoxImage.Error); 
                 }
                 LogLine("INFO", "Library: " + library + " loaded.");
             }

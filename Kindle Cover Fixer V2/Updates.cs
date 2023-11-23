@@ -1,10 +1,5 @@
 ﻿using Octokit;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
@@ -22,8 +17,8 @@ namespace Kindle_Cover_Fixer_V2
             float localVersion = float.Parse(UsefulVariables.AppVersion);
             if (latestVersion > localVersion)
             {
-                versionApp.Content = "Version " + UsefulVariables.AppVersion + " (New version available)";
-                MessageBoxResult result = MessageBox.Show("Do you want to download and install the new version? \r\n \r\n You will get the following features: \r\n \r\n." + features, "New version available!.", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                versionApp.Content = Strings.Version + UsefulVariables.AppVersion + Strings.NewVersionAv; 
+                MessageBoxResult result = MessageBox.Show(Strings.NewVersionWant + features, Strings.NewVersionWantTitle, MessageBoxButton.YesNo, MessageBoxImage.Information);
                 if (result == MessageBoxResult.Yes)
                 {
                     Process.Start("explorer", "https://github.com/weto91/kindle-cover-fixer/releases/latest");
@@ -32,7 +27,7 @@ namespace Kindle_Cover_Fixer_V2
             }
             else
             {
-                versionApp.Content = "Version " + UsefulVariables.AppVersion + " (Up to date)";
+                versionApp.Content = Strings.Version + UsefulVariables.AppVersion + Strings.UpToDate;
             }
         }
     }

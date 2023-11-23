@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Kindle_Cover_Fixer_V2
@@ -15,7 +11,7 @@ namespace Kindle_Cover_Fixer_V2
         private void CoverGenerationTask()
         {
             resultLabel.Content = String.Empty;
-            runningNow.Content = "Generating new covers...";
+            runningNow.Content = Strings.Generating;
             progressBar.Maximum = DataGridSystem.Items.Count;
             progressBar.Value = 0;
             DataGridUser.Items.Clear();
@@ -52,19 +48,19 @@ namespace Kindle_Cover_Fixer_V2
             }
             if (bookFailure > 0)
             {
-                resultLabel.Content = @"Failure on: " + bookFailure.ToString() + " of " + bookSuccess.ToString() + " cover(s)";
+                resultLabel.Content = Strings.Failure + bookFailure.ToString() + Strings.Of + bookSuccess.ToString() + Strings.Covers;
                 LogLine("FAILURE", "Cover generation progress was finished with errors)");
             }
             else
             {
                 Trace.WriteLine("ALL GENERATED");
-                resultLabel.Content = @"All cover(s) generated, total: " + bookSuccess.ToString() + " cover(s)";
+                resultLabel.Content = Strings.Generated + bookSuccess.ToString() + Strings.Covers;
                 LogLine("SUCCESS", "Cover generation progress was finished successfully");
             }
             Thread resize = new(ResizeThread);
             resize.Start();
             progressBar.Value++;
-            runningNow.Content = "Job finished";
+            runningNow.Content = Strings.Finished;
             TransferFiles transferFiles = new();
             bool? res = transferFiles.ShowDialog();
             if (res == true)

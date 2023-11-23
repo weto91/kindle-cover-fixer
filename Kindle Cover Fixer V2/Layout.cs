@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,6 +10,7 @@ namespace Kindle_Cover_Fixer_V2
         // Run when the MainWindow size was changed
         protected void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
+            Trace.WriteLine(e);
             double libraryPathDim = e.NewSize.Width - (40 + libraryPathLabel.ActualWidth + findBooks.ActualWidth);
             libraryPath.Width = libraryPathDim;
             statusStripGrid.Width = e.NewSize.Width - 30;

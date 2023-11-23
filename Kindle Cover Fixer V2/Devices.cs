@@ -1,13 +1,9 @@
 ﻿using MediaDevices;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -45,21 +41,21 @@ namespace Kindle_Cover_Fixer_V2
                 if (devices.First().FriendlyName == "Kindle Scribe")
                 {
                     Dispatcher.Invoke(() => {
-                        connectedDevice.Content = "Kindle Scribe";
+                        connectedDevice.Content = Strings.KindleScribe;
                     });
                     LogState("Connected Kindle Scribe", "CONNT", "KINDLE");
                 }
                 else if (otherKindle)
                 {
                     Dispatcher.Invoke(() => {
-                        connectedDevice.Content = "Kindle (Other)";
+                        connectedDevice.Content = Strings.KindleOther;
                     });
                     LogState("Connected Kindle (Other)", "CONNT", "KINDLE");
                 }
                 else
                 {
                     Dispatcher.Invoke(() => {
-                        connectedDevice.Content = "Device not connected";
+                        connectedDevice.Content = Strings.KindleNone;
                     });
                     LogState("Device disconnected", "DSCON", "DISCON");
                 }
@@ -67,7 +63,7 @@ namespace Kindle_Cover_Fixer_V2
             else
             {
                 Dispatcher.Invoke(() => {
-                    connectedDevice.Content = "Device not connected";
+                    connectedDevice.Content = Strings.KindleNone;
                 });
                 LogState("Device disconnected", "DSCON", "DISCON");
             }
