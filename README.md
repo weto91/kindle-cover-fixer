@@ -1,3 +1,4 @@
+![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/Images/Cover.png)
 # Kindle Cover Fixer
 
 ## Features
