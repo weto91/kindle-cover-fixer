@@ -32,24 +32,25 @@
 
 - Fix your missing ebook covers in your Kindle library
 - Send the fixed images to your Kindle device in one click.
+- Clean your Kindle of unused covers
 - You won't have to do anything else to enjoy your covers again.
 
   THIS APPLICATION IS COMPATIBLE WITH ALL KINDLE MODELS.
 
 ## How to run the app
 - You can download the last release from: https://github.com/weto91/kindle-cover-fixer/releases/latest
-- There is a setup file that can be used as normal application in your windows computer
-(This application is compatible from Windows 7 to the last Windows version)
+- There is a zip file that contains the application. Please review the project wiki for more information.
+(This application is compatible from Windows 7 to the latest Windows version)
 
 ## How to use the application
 - The first thing to do is transfer the books from our calibre library to the Kindle device
-- Disconnect the device and wait for it to load the complete library
-- With the Kindle device connected to the internet, wait for the following image to appear as the cover image of our ebooks
+- You can disconnect the device and wait for it to load the complete library (But is not necessary)
+	- With the Kindle device connected to the internet, wait for the following image to appear as the cover image of our ebooks
 
   
 ![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/thumbnail_generic.jpg)
 
-- Connect the device to the Windows PC
+	- Connect the device to the Windows PC
 - Open the application
 - Select the Calibre Library that you want to fix in your kindle.
 - Click on "Find Books" button and :
@@ -57,9 +58,9 @@
     - Book nº: A simple accountant.
     - Book Name: The name of the book
     - UUID: Universal Unique Identifier
-    - Passed: If the book has UUID and COVER, it will be true and the Cover can be generated. Otherwise, nothing will be done with that book.
+    - Transferrable: If the book is on the Kindle, it can be transferrable. If not, the cover will not transferred
 - Click on "Generate covers" button
-- When the progress is complete, a new window will appear allowing you to transfer files directly to your Kindle device.
+- When the progress is complete, a new button will be enabled allowing you to transfer files directly to your Kindle device.
 	- Please note that to transfer files to your device, it must be connected via USB to the PC. The application will detect it automatically.   
 - Now, you can disconnect the device from your computer. The library on your Kindle have the covers fixed!
 
