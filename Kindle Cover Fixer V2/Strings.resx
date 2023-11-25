@@ -273,4 +273,43 @@
   <data name="KindleTransferTitle" xml:space="preserve">
     <value>Files Transferred</value>
   </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="ClearKindle" xml:space="preserve">
+    <value>Clean unused Covers on Kindle</value>
+  </data>
+  <data name="ClearOutput" xml:space="preserve">
+    <value>Clean all Covers on Output</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Optimize" xml:space="preserve">
+    <value>Optimize covers (reduce to the resolution that Kindle uses.)</value>
+  </data>
+  <data name="GrayScale" xml:space="preserve">
+    <value>Gray scale images (Grayscale covers to reduce their size)</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="GroupOutput" xml:space="preserve">
+    <value>Output settings (Covers)</value>
+  </data>
 </root>

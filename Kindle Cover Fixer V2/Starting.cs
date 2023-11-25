@@ -133,6 +133,14 @@ namespace Kindle_Cover_Fixer_V2
             findBooks.Content = Strings.FindBooks;
             generateButton.Content = Strings.GenerateCovers;
             transferButton.Content = Strings.TransferToKindle;
+            fileButt.Header = Strings.File;
+            settingsButton.Header = Strings.Settings;
+            exitButton.Header = Strings.Exit;
+            toolsButt.Header = Strings.Tools;
+            clearKindle.Header = Strings.ClearKindle;
+            clearOutput.Header = Strings.ClearOutput;
+            helpButton.Header = Strings.Help;
+            aboutButton.Header = Strings.About;
             mainWindow.Width = mainWindow.ActualWidth + 1; // WorkArround to view correctly the FindBook Buttons           
         }
     }

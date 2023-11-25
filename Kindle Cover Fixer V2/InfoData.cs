@@ -7,6 +7,8 @@ namespace Kindle_Cover_Fixer_V2
 {
     public class UsefulVariables
     {
+        // Define the application version
+        public const string AppVersion = "2.4";
         // Read or Write settings for the application
         public static bool[] Settings()
         {
@@ -25,9 +27,7 @@ namespace Kindle_Cover_Fixer_V2
             }
             bool[] settingsArr = settingList.ToArray();
             return settingsArr;
-        }
-        // Define the application version
-        public const string AppVersion = "2.4";
+        }      
         // Determine the output folder path
         public static string OutputFolder()
         {

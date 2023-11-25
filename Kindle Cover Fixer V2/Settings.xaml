@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kindle_Cover_Fixer_V2"
         mc:Ignorable="d"
-        Title="Settings" Height="151" Width="307" Initialized="Settings_Initialized">
+        Title="Settings" Height="151" Width="404" Initialized="Settings_Initialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <CheckBox Name="optimizeCheck" Content="Optimize covers" IsChecked="true" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="grayScaleCheck" Content="Grayscale images" IsChecked="true" HorizontalAlignment="Left" Margin="10,45,15,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Output settings"/>
+        <GroupBox Name="groupOutput"  Header="Output settings"/>
         <StackPanel  Grid.Row="1"  HorizontalAlignment="Right" Orientation="Horizontal">
             <Button Name="saveButton" Content="Save settings" HorizontalAlignment="Right" Margin="5,0,5,0"  VerticalAlignment="Center" Style="{DynamicResource ButtonKey}" Click="SaveButton_Click"/>
             <Button Name="cancelButton" Content="Cancel" HorizontalAlignment="Right" Margin="5,0,20,0"  VerticalAlignment="Center" Style="{DynamicResource ButtonKey}" Click="CancelButton_Click"/>

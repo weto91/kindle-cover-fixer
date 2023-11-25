@@ -22,6 +22,11 @@ namespace Kindle_Cover_Fixer_V2
         {
             optimizeCheck.IsChecked = UsefulVariables.Settings()[0];
             grayScaleCheck.IsChecked = UsefulVariables.Settings()[1];
+            optimizeCheck.Content = Strings.Optimize;
+            grayScaleCheck.Content = Strings.GrayScale;
+            saveButton.Content = Strings.SaveSettings;
+            cancelButton.Content = Strings.Cancel;
+            groupOutput.Header = Strings.GroupOutput;
         }
     }
 }

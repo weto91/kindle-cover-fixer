@@ -61,6 +61,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a (To transfer files to your Kindle, it must be connected to your PC.).
         /// </summary>
         internal static string Aclaration {
@@ -133,6 +142,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a At this point you can do three things:.
         /// </summary>
         internal static string CanDo {
@@ -196,6 +214,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Clean unused Covers on Kindle.
+        /// </summary>
+        internal static string ClearKindle {
+            get {
+                return ResourceManager.GetString("ClearKindle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Clean all Covers on Output.
+        /// </summary>
+        internal static string ClearOutput {
+            get {
+                return ResourceManager.GetString("ClearOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a  cover(s).
         /// </summary>
         internal static string Covers {
@@ -205,11 +241,29 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Exit.
+        /// </summary>
+        internal static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Failure on: .
         /// </summary>
         internal static string Failure {
             get {
                 return ResourceManager.GetString("Failure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a File.
+        /// </summary>
+        internal static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
             }
         }
         
@@ -291,6 +345,33 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string GeneratingError {
             get {
                 return ResourceManager.GetString("GeneratingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gray scale images (Grayscale covers to reduce their size).
+        /// </summary>
+        internal static string GrayScale {
+            get {
+                return ResourceManager.GetString("GrayScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Output settings (Covers).
+        /// </summary>
+        internal static string GroupOutput {
+            get {
+                return ResourceManager.GetString("GroupOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Help.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -412,6 +493,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Optimize covers (reduce to the resolution that Kindle uses.).
+        /// </summary>
+        internal static string Optimize {
+            get {
+                return ResourceManager.GetString("Optimize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The covers in Output folder was deleted..
         /// </summary>
         internal static string OutputClean {
@@ -439,6 +529,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        internal static string SaveSettings {
+            get {
+                return ResourceManager.GetString("SaveSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Preferences.
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ⦁ Close this window to do nothing (Close)..
         /// </summary>
         internal static string ThingOne {
@@ -453,6 +561,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string ThingTwo {
             get {
                 return ResourceManager.GetString("ThingTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tools.
+        /// </summary>
+        internal static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
             }
         }
         
