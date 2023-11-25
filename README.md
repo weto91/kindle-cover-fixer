@@ -50,7 +50,7 @@
   
 ![Generic thumbnail](https://raw.githubusercontent.com/weto91/kindle-cover-fixer/main/thumbnail_generic.jpg)
 
-	- Connect the device to the Windows PC
+- Connect the device to the Windows PC
 - Open the application
 - Select the Calibre Library that you want to fix in your kindle.
 - Click on "Find Books" button and :
