@@ -2,7 +2,6 @@
 using System.Data.SQLite;
 using System.Data;
 using System.Threading;
-using System.Windows.Controls;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -50,8 +49,7 @@ namespace Kindle_Cover_Fixer_V2
                         }
                         else
                         {
-                            canDoIt = Strings.No;
-                                                   
+                            canDoIt = Strings.No;                                                 
                         }
                     LogLine("LIST", bookUuid +  " | " + bookTitle! + " | Transferable: " + canDoIt);
                     Dispatcher.Invoke(() =>

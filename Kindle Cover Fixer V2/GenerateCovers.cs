@@ -1,8 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
+﻿using System.Threading;
 using System.IO;
-using System.Data.Entity.Core.Metadata.Edm;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -26,23 +23,21 @@ namespace Kindle_Cover_Fixer_V2
             int bookSuccess = 0;
             int bookTransferible = 0;
             foreach (DataGridSystemCols dr in dgSystemItems!)
-            {        
-                
+            {           
                 string inputPath = dr.FilePath + @"\cover.jpg";
                 if (!string.IsNullOrEmpty(inputPath) && !string.IsNullOrEmpty(dr.FilePath) && !string.IsNullOrEmpty(dr.FileUuid))
                 {
                     string outputPath = UsefulVariables.OutputFolder() + @"\thumbnail_" + dr.FileUuid + @"_EBOK_portrait.jpg";
                     File.Copy(inputPath, outputPath, true);
-                  // if (File.Exists(outputPath))
-                  // {
-                  //     File.Delete(outputPath);
-                  // }
-                  // // TODO: estructura para hacer esto según opciones.
-                  // ImageResizer(inputPath, outputPath, true);
-                  // if (dr.FileCan == Strings.Yes)
-                  // {
-                  //     bookTransferible++;
-                  // }
+                    if (File.Exists(outputPath))
+                    {
+                        File.Delete(outputPath);
+                    }
+                    ImageResizer(inputPath, outputPath, UsefulVariables.Settings()[0], UsefulVariables.Settings()[1]);
+                    if (dr.FileCan == Strings.Yes)
+                    {
+                        bookTransferible++;
+                    }
                     if (File.Exists(outputPath))
                     {
                         bookSuccess++;
