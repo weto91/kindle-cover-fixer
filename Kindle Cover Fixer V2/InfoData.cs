@@ -9,7 +9,7 @@ namespace Kindle_Cover_Fixer_V2
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.2";
+        public const string AppVersion = "2.3";
         // Determine the output folder path
         public static string OutputFolder()
         {

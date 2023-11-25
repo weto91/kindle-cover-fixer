@@ -23,7 +23,7 @@ namespace Kindle_Cover_Fixer_V2
             {
                 string[] namea = cover.Split("_EBOK_portrait.jpg");
                 string[] uuid = namea[0].Split(@"\thumbnail_");
-                string name = "thumbnail_" + uuid[1] + ".jpg";
+                string name = "thumbnail_" + uuid[1] + "_EBOK_portrait.jpg";
                 FileInfo file = new(cover);
                 double size = file.Length * 1048576;
                 Dispatcher.Invoke(() =>

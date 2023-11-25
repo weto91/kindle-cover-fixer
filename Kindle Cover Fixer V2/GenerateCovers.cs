@@ -33,10 +33,16 @@ namespace Kindle_Cover_Fixer_V2
                 {
                     string outputPath = UsefulVariables.OutputFolder() + @"\thumbnail_" + dr.FileUuid + @"_EBOK_portrait.jpg";
                     File.Copy(inputPath, outputPath, true);
-                    if (dr.FileCan == Strings.Yes)
-                    {
-                        bookTransferible++;
-                    }
+                  // if (File.Exists(outputPath))
+                  // {
+                  //     File.Delete(outputPath);
+                  // }
+                  // // TODO: estructura para hacer esto según opciones.
+                  // ImageResizer(inputPath, outputPath, true);
+                  // if (dr.FileCan == Strings.Yes)
+                  // {
+                  //     bookTransferible++;
+                  // }
                     if (File.Exists(outputPath))
                     {
                         bookSuccess++;
