@@ -48,10 +48,12 @@
         <DataGrid x:Name="DataGridSystem" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True"/>
         <DataGrid x:Name="DataGridTransfer" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
         <Menu>
-            <MenuItem Header="File">
+            <MenuItem Name="fileButt" Header="File">
+                <MenuItem Name="settingsButton" Header="Preferences" Click="SettingsButton_Click"/>
+                <Separator/>
                 <MenuItem Name="exitButton" Header="Exit" Click="ExitButton_Click"/>
             </MenuItem>
-            <MenuItem Header="Tools">
+            <MenuItem Name="toolsButt" Header="Tools">
                 <MenuItem Name="clearKindle"  Header="Clean unused Covers on Kindle" Click="ClearKindle_Click"/>
                 <MenuItem Name="clearOutput" Header="Clean all Covers on Output" Click="ClearOutput_Click"/>
             </MenuItem>

@@ -7,7 +7,7 @@ using System.Windows;
 namespace Kindle_Cover_Fixer_V2
 {
     public partial class MainWindow : Window
-    {
+    { 
         // Create Output directory if not exists or delte its content if exists and the log file
         private void OutputCreateOrDelete()
         {
@@ -23,10 +23,8 @@ namespace Kindle_Cover_Fixer_V2
             {
                 Directory.CreateDirectory(logPath);
                 FirstLog();
-            }
-          
+            }    
         }
-
         // Define the User information DataGrid structure for Find books
         private void DataGridUserPreparation()
         {
@@ -135,8 +133,15 @@ namespace Kindle_Cover_Fixer_V2
             findBooks.Content = Strings.FindBooks;
             generateButton.Content = Strings.GenerateCovers;
             transferButton.Content = Strings.TransferToKindle;
-            mainWindow.Width = mainWindow.ActualWidth + 1; // WorkArround to view correctly the FindBook Buttons
-            
+            fileButt.Header = Strings.File;
+            settingsButton.Header = Strings.Settings;
+            exitButton.Header = Strings.Exit;
+            toolsButt.Header = Strings.Tools;
+            clearKindle.Header = Strings.ClearKindle;
+            clearOutput.Header = Strings.ClearOutput;
+            helpButton.Header = Strings.Help;
+            aboutButton.Header = Strings.About;
+            mainWindow.Width = mainWindow.ActualWidth + 1; // WorkArround to view correctly the FindBook Buttons           
         }
     }
 }

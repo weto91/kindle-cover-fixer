@@ -65,7 +65,7 @@ namespace Kindle_Cover_Fixer_V2
                 TransferScribe(fileToCopy, fileName);
             }
         }
-        // Transfer to Scribe Task
+        // Transfer to Other Task
         private void TransferOther(string fileToCopy, string fileName)
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
@@ -85,7 +85,7 @@ namespace Kindle_Cover_Fixer_V2
                 }
             }
         }
-        // Transfer to other Task
+        // Transfer to Scribe Task
         private void TransferScribe(string fileToCopy, string fileName)
         {
             var devicess = MediaDevice.GetDevices();

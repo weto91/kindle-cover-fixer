@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Kindle_Cover_Fixer_V2
 {

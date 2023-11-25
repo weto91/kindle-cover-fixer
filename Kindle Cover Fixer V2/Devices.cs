@@ -1,6 +1,5 @@
 ﻿using MediaDevices;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Timers;
@@ -11,7 +10,7 @@ namespace Kindle_Cover_Fixer_V2
     {
         private void CheckKindle()
         {
-            System.Timers.Timer aTimer = new(2000);
+            Timer aTimer = new(2000);
             aTimer.Elapsed += OnTimedEvent!;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
@@ -75,7 +74,6 @@ namespace Kindle_Cover_Fixer_V2
             {
                 LogLine("DEVICE", description);
                 StateDevice = newState;
-
             }
             else if (StateDevice == "CONNT" && youAre == "DSCON")
             {

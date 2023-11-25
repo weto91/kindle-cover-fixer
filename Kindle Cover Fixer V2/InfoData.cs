@@ -5,11 +5,29 @@ using System.Collections.Generic;
 
 namespace Kindle_Cover_Fixer_V2
 {
-
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.3";
+        public const string AppVersion = "2.4";
+        // Read or Write settings for the application
+        public static bool[] Settings()
+        {
+            List<bool> settingList = new();
+            if (File.Exists(UsefulVariables.GetKindleCoverFixerPath() + @"\settings.conf"))
+            {
+                foreach (string line in File.ReadLines(UsefulVariables.GetKindleCoverFixerPath() + @"\settings.conf"))
+                {
+                    settingList.Add(bool.Parse(line.Split(": ")[1]));
+                }
+            }
+            else
+            {
+                settingList.Add(true);
+                settingList.Add(true);
+            }
+            bool[] settingsArr = settingList.ToArray();
+            return settingsArr;
+        }      
         // Determine the output folder path
         public static string OutputFolder()
         {
@@ -71,7 +89,5 @@ namespace Kindle_Cover_Fixer_V2
             string[] result = resultList.ToArray();
             return result;
         }
-        // Check if file is in use
     }
-
 }

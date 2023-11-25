@@ -1,13 +1,7 @@
 ﻿using MediaDevices;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Shapes;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -31,7 +25,6 @@ namespace Kindle_Cover_Fixer_V2
             }
             return result;
         }
-
         private static bool IsOnKindleOther(string uuid)
         {
             bool canDoIt = false;
@@ -67,7 +60,6 @@ namespace Kindle_Cover_Fixer_V2
                 device.Connect();
                 var objects = device.FunctionalObjects(FunctionalCategory.Storage);
                 MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
-
                 using (FileStream stream = File.OpenWrite(whereToCopy))
                 {
                     device.DownloadFile(@"\" + deviceInfo.Description + @"\metadata.calibre", stream);

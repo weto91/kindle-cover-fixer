@@ -61,6 +61,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a (To transfer files to your Kindle, it must be connected to your PC.).
         /// </summary>
         internal static string Aclaration {
@@ -133,6 +142,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a At this point you can do three things:.
         /// </summary>
         internal static string CanDo {
@@ -147,6 +165,24 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string CanTransfer {
             get {
                 return ResourceManager.GetString("CanTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The images have been generated in the output directory, but they will not be able to be transferred to the Kindle. This occurs because you do not have books in common between your caliber library and your library on the device. If you have modified any minor detail of the books in Caliber, the change will not be synchronized with your Kindle, please: Re-send the Caliber books to the Kindle and run this application again..
+        /// </summary>
+        internal static string CantTransfer {
+            get {
+                return ResourceManager.GetString("CantTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Generated images cannot be transferred.
+        /// </summary>
+        internal static string CantTransferTitle {
+            get {
+                return ResourceManager.GetString("CantTransferTitle", resourceCulture);
             }
         }
         
@@ -196,6 +232,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Clean unused Covers on Kindle.
+        /// </summary>
+        internal static string ClearKindle {
+            get {
+                return ResourceManager.GetString("ClearKindle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Clean all Covers on Output.
+        /// </summary>
+        internal static string ClearOutput {
+            get {
+                return ResourceManager.GetString("ClearOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a  cover(s).
         /// </summary>
         internal static string Covers {
@@ -205,11 +259,29 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Exit.
+        /// </summary>
+        internal static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Failure on: .
         /// </summary>
         internal static string Failure {
             get {
                 return ResourceManager.GetString("Failure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a File.
+        /// </summary>
+        internal static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
             }
         }
         
@@ -295,6 +367,33 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Gray scale images (Grayscale covers to reduce their size).
+        /// </summary>
+        internal static string GrayScale {
+            get {
+                return ResourceManager.GetString("GrayScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Output settings (Covers).
+        /// </summary>
+        internal static string GroupOutput {
+            get {
+                return ResourceManager.GetString("GroupOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Help.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The unused covers in in your Kindle was deleted..
         /// </summary>
         internal static string KindleClean {
@@ -318,6 +417,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string KindleNone {
             get {
                 return ResourceManager.GetString("KindleNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There is no Kindle connected, so covers cannot be transferred. Please connect the device and try again..
+        /// </summary>
+        internal static string KindleNotconnected {
+            get {
+                return ResourceManager.GetString("KindleNotconnected", resourceCulture);
             }
         }
         
@@ -412,6 +520,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Optimize covers (reduce to the resolution that Kindle uses.).
+        /// </summary>
+        internal static string Optimize {
+            get {
+                return ResourceManager.GetString("Optimize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The covers in Output folder was deleted..
         /// </summary>
         internal static string OutputClean {
@@ -439,6 +556,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        internal static string SaveSettings {
+            get {
+                return ResourceManager.GetString("SaveSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Preferences.
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ⦁ Close this window to do nothing (Close)..
         /// </summary>
         internal static string ThingOne {
@@ -453,6 +588,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string ThingTwo {
             get {
                 return ResourceManager.GetString("ThingTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tools.
+        /// </summary>
+        internal static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
             }
         }
         

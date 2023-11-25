@@ -273,4 +273,52 @@
   <data name="KindleTransfer" xml:space="preserve">
     <value>Las portadas han sido transferidas a Kindle. ¡Solo queda disfrutar!</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Preferencias</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Archivo</value>
+  </data>
+  <data name="ClearKindle" xml:space="preserve">
+    <value>Limpiar portadas no utilizadas de Kindle</value>
+  </data>
+  <data name="ClearOutput" xml:space="preserve">
+    <value>Limpiar todas las portadas de Output</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Optimize" xml:space="preserve">
+    <value>Optimizar portadas (reducir a la resolución que utiliza Kindle)</value>
+  </data>
+  <data name="GrayScale" xml:space="preserve">
+    <value>Imágenes en escala de grises (Para ahorrar espacio en disco)</value>
+  </data>
+  <data name="GroupOutput" xml:space="preserve">
+    <value>Preferencias de salida (Portadas)</value>
+  </data>
+  <data name="CantTransferTitle" xml:space="preserve">
+    <value>Las imágenes generadas no podrán ser transferidas</value>
+  </data>
+  <data name="CantTransfer" xml:space="preserve">
+    <value>Las imágenes se generaron en el directorio de salida, pero no podrán transferirse al Kindle. Esto ocurre porque no tiene libros en común entre su biblioteca calibre y su biblioteca en el dispositivo. Si ha modificado algún detalle menor de los libros en Calibre, el cambio no se sincronizará con su Kindle, por favor: Vuelva a enviar los libros de Calibre al Kindle y ejecute esta aplicación nuevamente.</value>
+  </data>
+  <data name="KindleNotconnected" xml:space="preserve">
+    <value>No hay ningún Kindle conectado, por lo que las portadas no se pueden transferir. Por favor, Conecte el dispositivo e inténtelo de nuevo.</value>
+  </data>
 </root>
