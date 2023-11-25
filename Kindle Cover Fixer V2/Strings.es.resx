@@ -312,4 +312,13 @@
   <data name="GroupOutput" xml:space="preserve">
     <value>Preferencias de salida (Portadas)</value>
   </data>
+  <data name="CantTransferTitle" xml:space="preserve">
+    <value>Las imágenes generadas no podrán ser transferidas</value>
+  </data>
+  <data name="CantTransfer" xml:space="preserve">
+    <value>Las imágenes se generaron en el directorio de salida, pero no podrán transferirse al Kindle. Esto ocurre porque no tiene libros en común entre su biblioteca calibre y su biblioteca en el dispositivo. Si ha modificado algún detalle menor de los libros en Calibre, el cambio no se sincronizará con su Kindle, por favor: Vuelva a enviar los libros de Calibre al Kindle y ejecute esta aplicación nuevamente.</value>
+  </data>
+  <data name="KindleNotconnected" xml:space="preserve">
+    <value>No hay ningún Kindle conectado, por lo que las portadas no se pueden transferir. Por favor, Conecte el dispositivo e inténtelo de nuevo.</value>
+  </data>
 </root>

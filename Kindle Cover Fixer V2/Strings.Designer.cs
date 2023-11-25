@@ -169,6 +169,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The images have been generated in the output directory, but they will not be able to be transferred to the Kindle. This occurs because you do not have books in common between your caliber library and your library on the device. If you have modified any minor detail of the books in Caliber, the change will not be synchronized with your Kindle, please: Re-send the Caliber books to the Kindle and run this application again..
+        /// </summary>
+        internal static string CantTransfer {
+            get {
+                return ResourceManager.GetString("CantTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Generated images cannot be transferred.
+        /// </summary>
+        internal static string CantTransferTitle {
+            get {
+                return ResourceManager.GetString("CantTransferTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Please, check that you have a library correctly configured in Calibre..
         /// </summary>
         internal static string CheckLibrary {
@@ -399,6 +417,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string KindleNone {
             get {
                 return ResourceManager.GetString("KindleNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a There is no Kindle connected, so covers cannot be transferred. Please connect the device and try again..
+        /// </summary>
+        internal static string KindleNotconnected {
+            get {
+                return ResourceManager.GetString("KindleNotconnected", resourceCulture);
             }
         }
         

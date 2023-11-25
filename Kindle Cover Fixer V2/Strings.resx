@@ -312,4 +312,13 @@
   <data name="GroupOutput" xml:space="preserve">
     <value>Output settings (Covers)</value>
   </data>
+  <data name="CantTransfer" xml:space="preserve">
+    <value>The images have been generated in the output directory, but they will not be able to be transferred to the Kindle. This occurs because you do not have books in common between your caliber library and your library on the device. If you have modified any minor detail of the books in Caliber, the change will not be synchronized with your Kindle, please: Re-send the Caliber books to the Kindle and run this application again.</value>
+  </data>
+  <data name="CantTransferTitle" xml:space="preserve">
+    <value>Generated images cannot be transferred</value>
+  </data>
+  <data name="KindleNotconnected" xml:space="preserve">
+    <value>There is no Kindle connected, so covers cannot be transferred. Please connect the device and try again.</value>
+  </data>
 </root>

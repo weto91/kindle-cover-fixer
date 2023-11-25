@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.IO;
+using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -101,9 +102,20 @@ namespace Kindle_Cover_Fixer_V2
                 progressBar.Value++;
                 runningNow.Content = Strings.Finished;
                 transferButton.Visibility = System.Windows.Visibility.Visible;
-                if (connectedDevice.Content.ToString()!.Contains(Strings.KindleOther) || connectedDevice.Content.ToString()!.Contains(Strings.KindleScribe) && bookTransferible > 0)
+                if (connectedDevice.Content.ToString()!.Contains(Strings.KindleOther) || connectedDevice.Content.ToString()!.Contains(Strings.KindleScribe))
                 {
-                    transferButton.IsEnabled = true;
+                    if (bookTransferible > 0)
+                    {
+                        transferButton.IsEnabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(Strings.CantTransfer, Strings.CantTransferTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Strings.KindleNotconnected, Strings.KindleNone, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             });
         }
