@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.IO;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -14,64 +11,100 @@ namespace Kindle_Cover_Fixer_V2
     {
         private void CoverGenerationTask()
         {
-            resultLabel.Content = String.Empty;
-            runningNow.Content = "Generating new covers...";
-            progressBar.Maximum = DataGridSystem.Items.Count;
-            progressBar.Value = 0;
-            DataGridUser.Items.Clear();
+            System.Windows.Controls.ItemCollection? dgSystemItems = null;
+            Dispatcher.Invoke(() =>
+            {
+                DataGridUserPreparationGen();
+                resultLabel.Content = string.Empty;
+                runningNow.Content = Strings.Generating;
+                progressBar.Maximum = DataGridSystem.Items.Count;
+                progressBar.Value = 0;
+                DataGridUser.Items.Clear();
+                dgSystemItems = DataGridSystem.Items;
+            });         
             int bookFailure = 0;
             int bookSuccess = 0;
-            foreach (DataGridSystemCols dr in DataGridSystem.Items)
-            {
-                double bookNumber = progressBar.Value + 1;
+            int bookTransferible = 0;
+            foreach (DataGridSystemCols dr in dgSystemItems!)
+            {        
+                
                 string inputPath = dr.FilePath + @"\cover.jpg";
                 if (!string.IsNullOrEmpty(inputPath) && !string.IsNullOrEmpty(dr.FilePath) && !string.IsNullOrEmpty(dr.FileUuid))
                 {
-                    String outputPath = UsefulVariables.OutputFolder() + @"\thumbnail_" + dr.FileUuid + @"_EBOK_portrait.jpg";
+                    string outputPath = UsefulVariables.OutputFolder() + @"\thumbnail_" + dr.FileUuid + @"_EBOK_portrait.jpg";
                     File.Copy(inputPath, outputPath, true);
+                    if (dr.FileCan == Strings.Yes)
+                    {
+                        bookTransferible++;
+                    }
                     if (File.Exists(outputPath))
                     {
                         bookSuccess++;
-                        DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookNumber + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Cover generated" });
+                        Dispatcher.Invoke(() =>
+                        {
+                            double bookNumber = progressBar.Value + 1;
+                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Cover generated" });
+                        });
                         LogLine("SUCCESS", dr.FileName + " Cover generated");
                     }
                     else
                     {
                         bookFailure++;
-                        DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookNumber + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });
+                        Dispatcher.Invoke(() =>
+                        {
+                            double bookNumber = progressBar.Value + 1;
+                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });                         
+                        });
                         LogLine("FAILURE", dr.FileName + " Cover generation failed");
                     }
                 }
                 else
                 {
                     bookFailure++;
-                    DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookNumber + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });
+                    Dispatcher.Invoke(() =>
+                    {
+                        double bookNumber = progressBar.Value + 1;
+                        DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });
+                    });
                     LogLine("FAILURE", dr.FileName + " Cover generation failed");
                 }
-                progressBar.Value++;
+                Dispatcher.Invoke(() =>
+                {
+                    DataGridUser.ScrollIntoView(DataGridUser.Items.GetItemAt(DataGridUser.Items.Count - 1));
+                    progressBar.Value++;
+                });
+                Thread resize = new(ResizeThread);
+                resize.Start();
             }
             if (bookFailure > 0)
             {
-                resultLabel.Content = @"Failure on: " + bookFailure.ToString() + " of " + bookSuccess.ToString() + " cover(s)";
+                Dispatcher.Invoke(() =>
+                {
+                    resultLabel.Content = Strings.Failure + bookFailure.ToString() + Strings.Of + bookSuccess.ToString() + Strings.Covers;
+                });
                 LogLine("FAILURE", "Cover generation progress was finished with errors)");
             }
             else
             {
-                Trace.WriteLine("ALL GENERATED");
-                resultLabel.Content = @"All cover(s) generated, total: " + bookSuccess.ToString() + " cover(s)";
+                Dispatcher.Invoke(() =>
+                {
+                    resultLabel.Content = Strings.Generated + bookSuccess.ToString() + Strings.Covers + Strings.CanTransfer + bookTransferible;
+                    resultLabel.ToolTip = Strings.NotTransferible;
+                });
                 LogLine("SUCCESS", "Cover generation progress was finished successfully");
             }
-            Thread resize = new(ResizeThread);
-            resize.Start();
-            progressBar.Value++;
-            runningNow.Content = "Job finished";
-            TransferFiles transferFiles = new();
-            bool? res = transferFiles.ShowDialog();
-            if (res == true)
+            Thread resizeEnd = new(ResizeThread);
+            resizeEnd.Start();
+            Dispatcher.Invoke(() =>
             {
-                Thread task = new(TransferFilesToKindle);
-                task.Start();
-            }
+                progressBar.Value++;
+                runningNow.Content = Strings.Finished;
+                transferButton.Visibility = System.Windows.Visibility.Visible;
+                if (connectedDevice.Content.ToString()!.Contains(Strings.KindleOther) || connectedDevice.Content.ToString()!.Contains(Strings.KindleScribe) && bookTransferible > 0)
+                {
+                    transferButton.IsEnabled = true;
+                }
+            });
         }
     }
 }

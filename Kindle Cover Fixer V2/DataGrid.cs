@@ -13,6 +13,7 @@
         public string FilePath { get; set; }
         public string FileUuid { get; set; }
         public string FileName { get; set; }
+        public string FileCan { get; set; }
     }
     public struct DataGridTransferCols
     {

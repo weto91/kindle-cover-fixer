@@ -8,21 +8,25 @@
         Title="Kindle Cover Fixer" MinHeight="680" MinWidth="1000" Height="680" Width="1000" SizeChanged="OnWindowSizeChanged" Loaded="OnWindowLoaded" ContentRendered="MainWindowRendered" Closing="MainWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name ="transferButton" Content="Transfer to Kindle" Margin="5,0,5,0" Height="25" Click="TransferButton_Click" IsEnabled="False" Style="{DynamicResource ButtonKey}"/>
             <Button Name="generateButton" Content="Generate Covers" Margin="5,0,5,0" Height="25" Click="GenerateButton_Click" IsEnabled="False" Style="{DynamicResource ButtonKey}"/>
         </StackPanel>
-        <Label Grid.Row="2" Name="resultLabel" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Label Grid.Row="2" Name="resultLabel" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label   Name="libraryPathLabel" Content="Calibre library:" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>
             <ComboBox x:Name="libraryPath" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>
             <Button  Name="findBooks" Content="Find books" Height="25" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" Click="FindBooks_Click" Style="{DynamicResource ButtonKey}"/>
         </StackPanel>
-        <StatusBar Grid.Row="3">
+        <StatusBar Grid.Row="4">
             <Grid Name="statusStripGrid" Margin="5,0,5,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Name="columnLeft" Width="390"/>
@@ -40,10 +44,22 @@
                 </StackPanel>
             </Grid>
         </StatusBar>
-        <DataGrid x:Name="DataGridUser" Grid.Row="1" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
-        <DataGrid x:Name="DataGridSystem" Grid.Row="1" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True"/>
-        <DataGrid x:Name="DataGridTransfer" Grid.Row="1" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
+        <DataGrid x:Name="DataGridUser" Grid.Row="2" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
+        <DataGrid x:Name="DataGridSystem" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridTransfer" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Name="exitButton" Header="Exit" Click="ExitButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Name="clearKindle"  Header="Clean unused Covers on Kindle" Click="ClearKindle_Click"/>
+                <MenuItem Name="clearOutput" Header="Clean all Covers on Output" Click="ClearOutput_Click"/>
+            </MenuItem>
+            <MenuItem Name="helpButton" Header="Help" Click="HelpButton_Click"/>
+            <MenuItem Name="aboutButton"  Header="About" Click="AboutButton_Click"/>
+        </Menu>
     </Grid>
+
 
 
 
