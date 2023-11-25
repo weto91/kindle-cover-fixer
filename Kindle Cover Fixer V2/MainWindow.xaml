@@ -15,11 +15,11 @@
             <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name ="transferButton" Content="Transfer to Kindle" Margin="5,0,5,0" Height="25" Click="TransferButton_Click" IsEnabled="False" Style="{DynamicResource ButtonKey}"/>
             <Button Name="generateButton" Content="Generate Covers" Margin="5,0,5,0" Height="25" Click="GenerateButton_Click" IsEnabled="False" Style="{DynamicResource ButtonKey}"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left">
             <Label Grid.Row="2" Name="resultLabel" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-            <Label Content="" Name="checkSync" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Foreground="DarkBlue" MouseEnter="CheckSync_Enter" MouseLeave="CheckSync_Leave" MouseDown="checkSync_MouseDown"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label   Name="libraryPathLabel" Content="Calibre library:" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>
@@ -49,20 +49,17 @@
         <DataGrid x:Name="DataGridTransfer" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
         <Menu>
             <MenuItem Header="File">
-                <MenuItem Name="saveTable" Header="Save table..." Click="SaveTable_Click"/>
-                <Separator/>
                 <MenuItem Name="exitButton" Header="Exit" Click="ExitButton_Click"/>
             </MenuItem>
             <MenuItem Header="Tools">
-                <MenuItem Name="clearKindle"  Header="Clean all Covers on Kindle" Click="ClearKindle_Click"/>
+                <MenuItem Name="clearKindle"  Header="Clean unused Covers on Kindle" Click="ClearKindle_Click"/>
                 <MenuItem Name="clearOutput" Header="Clean all Covers on Output" Click="ClearOutput_Click"/>
-                <Separator/>
-                <MenuItem Name="findUnsynced" Header="Find unsynced books." Click="FindUnsynced_Click"/>
             </MenuItem>
             <MenuItem Name="helpButton" Header="Help" Click="HelpButton_Click"/>
             <MenuItem Name="aboutButton"  Header="About" Click="AboutButton_Click"/>
         </Menu>
     </Grid>
+
 
 
 

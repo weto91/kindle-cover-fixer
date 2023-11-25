@@ -1,6 +1,7 @@
 ﻿using MediaDevices;
 using System.IO;
 using System.Linq;
+using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -17,11 +18,12 @@ namespace Kindle_Cover_Fixer_V2
                 progressBar.Maximum = covers.Length;
                 progressBar.Value = 0;
             });
+            int bookCounter = 1;
             foreach (string cover in covers)
             {
-                string[] namea = cover.Split(".jpg");
-                string[] nameb = namea[0].Split(@"\thumbnail");
-                string name = "thumbnail" + nameb[1] + ".jpg";
+                string[] namea = cover.Split("_EBOK_portrait.jpg");
+                string[] uuid = namea[0].Split(@"\thumbnail_");
+                string name = "thumbnail_" + uuid[1] + ".jpg";
                 FileInfo file = new(cover);
                 double size = file.Length * 1048576;
                 Dispatcher.Invoke(() =>
@@ -29,18 +31,25 @@ namespace Kindle_Cover_Fixer_V2
                     double fileNumber = progressBar.Value + 1;
                     DataGridTransfer.Items.Add(new DataGridTransferCols { FileNumber = @"[" + fileNumber + @"/" + covers.Length + @"]", FileName = name, FileSize = size.ToString() });
                 });
-                TransferFilesCheck(cover, name);
+                if (IsOnKindle(uuid[1], bookCounter))
+                {
+                    TransferFilesCheck(cover, name);
+                }
                 Dispatcher.Invoke(() =>
                 {
                     progressBar.Value++;
                 });
+                bookCounter++;
             }
             Dispatcher.Invoke(() =>
             {
                 progressBar.Value++;
                 runningNow.Content = Strings.Transferred; 
-                LogLine("SUCCESS", "All files was transferred to the device.");
+                LogLine("TRANSFER", "All files was transferred to the device.");
             });
+            string message = Strings.KindleTransfer;
+            string messageTitle = Strings.KindleTransferTitle;
+            MessageBox.Show(message, messageTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
         // Check device and start the transfer Task
         private void TransferFilesCheck(string fileToCopy, string fileName)
@@ -57,7 +66,7 @@ namespace Kindle_Cover_Fixer_V2
             }
         }
         // Transfer to Scribe Task
-        private static void TransferOther(string fileToCopy, string fileName)
+        private void TransferOther(string fileToCopy, string fileName)
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
             foreach (DriveInfo drive in drives)
@@ -77,7 +86,7 @@ namespace Kindle_Cover_Fixer_V2
             }
         }
         // Transfer to other Task
-        private static void TransferScribe(string fileToCopy, string fileName)
+        private void TransferScribe(string fileToCopy, string fileName)
         {
             var devicess = MediaDevice.GetDevices();
             using var device = devicess.First(d => d.FriendlyName == "Kindle Scribe");

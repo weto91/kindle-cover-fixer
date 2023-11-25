@@ -130,7 +130,7 @@
     <value>LIBRO Nº</value>
   </data>
   <data name="BookPassed" xml:space="preserve">
-    <value>CORRECTO</value>
+    <value>¿Está en Kindle?</value>
   </data>
   <data name="BookUuid" xml:space="preserve">
     <value>UUID</value>
@@ -148,10 +148,7 @@
     <value>No se encuentran bibliotecas de Calibre.</value>
   </data>
   <data name="CheckSync" xml:space="preserve">
-    <value>- Buscar libros no sincronizados. -</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Cerrar</value>
+    <value> - Buscar libros no sincronizados. -</value>
   </data>
   <data name="Covers" xml:space="preserve">
     <value> portada(s)</value>
@@ -230,5 +227,50 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versión </value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="FinishListing" xml:space="preserve">
+    <value>Todos los libros de su biblioteca están enumerados en la tabla.</value>
+  </data>
+  <data name="TransferToKindle" xml:space="preserve">
+    <value>Transferir a Kindle</value>
+  </data>
+  <data name="OutputClean" xml:space="preserve">
+    <value>Las portadas del directorio Output han sido eliminadas.</value>
+  </data>
+  <data name="OutputCleanTitle" xml:space="preserve">
+    <value>Limpieza finalizada</value>
+  </data>
+  <data name="Cleaning" xml:space="preserve">
+    <value>Eliminando portadas sin utilizar en Kindle</value>
+  </data>
+  <data name="Cleaned" xml:space="preserve">
+    <value>Portadas sin utilizar eliminadas.</value>
+  </data>
+  <data name="BookStatus" xml:space="preserve">
+    <value>RESULTADO</value>
+  </data>
+  <data name="CanTransfer" xml:space="preserve">
+    <value> | Pueden ser transferidas a Kindle: </value>
+  </data>
+  <data name="NotTransferible" xml:space="preserve">
+    <value>Las portadas generadas no podrán transferirse al Kindle si ninguna portada corresponde a un libro actualmente en Kindle.</value>
+  </data>
+  <data name="KindleCleanTitle" xml:space="preserve">
+    <value>Limpieza finalizada</value>
+  </data>
+  <data name="KindleClean" xml:space="preserve">
+    <value>Las portadas no utilizadas en tu Kindle han sido eliminadas.</value>
+  </data>
+  <data name="KindleTransferTitle" xml:space="preserve">
+    <value>Ficheros transferidos</value>
+  </data>
+  <data name="KindleTransfer" xml:space="preserve">
+    <value>Las portadas han sido transferidas a Kindle. ¡Solo queda disfrutar!</value>
   </data>
 </root>

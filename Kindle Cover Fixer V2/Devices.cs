@@ -71,7 +71,6 @@ namespace Kindle_Cover_Fixer_V2
         // Log device status
         private void LogState(string description, string newState, string youAre)
         {
-            Trace.WriteLine("STATE: " + StateDevice);
             if (StateDevice == "DSCON" && youAre == "KINDLE")
             {
                 LogLine("DEVICE", description);

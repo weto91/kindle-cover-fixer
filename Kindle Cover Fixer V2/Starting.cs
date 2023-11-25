@@ -9,37 +9,29 @@ namespace Kindle_Cover_Fixer_V2
     public partial class MainWindow : Window
     {
         // Create Output directory if not exists or delte its content if exists and the log file
-        private static void OutputCreateOrDelete()
+        private void OutputCreateOrDelete()
         {
             // output
-            if (Directory.Exists(UsefulVariables.OutputFolder()))
+            CleanOrCreateOutput();
+            // log file
+            string logPath = UsefulVariables.GetKindleCoverFixerPath() + @"\Log";
+            if (Directory.Exists(logPath))
             {
-                // Delete content
-                foreach (string file in Directory.GetFiles(UsefulVariables.OutputFolder()))
-                {
-                    File.Delete(file);
-                }
+                FirstLog();
             }
             else
             {
-                // Create directory
-                Directory.CreateDirectory(UsefulVariables.OutputFolder());
+                Directory.CreateDirectory(logPath);
+                FirstLog();
             }
-            // log file
-            string text = @"Started on " + System.DateTime.Now.ToString();
-            File.WriteAllText(UsefulVariables.LogFile(), text);
-            LogLine("INFO", "Started at: " + DateTime.Now);
-            LogLine("INFO", "OS version: " + Environment.OSVersion);
-            LogLine("INFO", "Process ID: " + Environment.ProcessId);
-            LogLine("INFO", "System memory page: " + Environment.SystemPageSize);
-            LogLine("INFO", "Version: " + Environment.Version);
-            LogLine("INFO", "KCF Path: " + Environment.ProcessPath);
-            LogLine("INFO", "KCF Version: " + UsefulVariables.AppVersion);
-            LogLine("INFO", "#############################################################");
+          
         }
-        // Define the User information DataGrid structure
+
+        // Define the User information DataGrid structure for Find books
         private void DataGridUserPreparation()
         {
+            DataGridUser.Items.Clear();
+            DataGridUser.Columns.Clear();
             // Columns definition
             DataGridTextColumn col0 = new();
             DataGridTextColumn col1 = new();
@@ -55,6 +47,32 @@ namespace Kindle_Cover_Fixer_V2
             col1.Header = Strings.BookName; //DGUNA
             col2.Header = Strings.BookUuid; //DGUU
             col3.Header = Strings.BookPassed; //DGUP
+            // Bindings with the struct
+            col0.Binding = new Binding("FileNumber");
+            col1.Binding = new Binding("FileName");
+            col2.Binding = new Binding("FileUuid");
+            col3.Binding = new Binding("FileCan");
+        }
+        // Define the User information DataGrid structure for Generate covers
+        private void DataGridUserPreparationGen()
+        {
+            DataGridUser.Items.Clear();
+            DataGridUser.Columns.Clear();
+            // Columns definition
+            DataGridTextColumn col0 = new();
+            DataGridTextColumn col1 = new();
+            DataGridTextColumn col2 = new();
+            DataGridTextColumn col3 = new();
+            // Columns creation
+            DataGridUser.Columns.Add(col0);
+            DataGridUser.Columns.Add(col1);
+            DataGridUser.Columns.Add(col2);
+            DataGridUser.Columns.Add(col3);
+            // Column header configuration
+            col0.Header = Strings.BookNumber; //DGUNU
+            col1.Header = Strings.BookName; //DGUNA
+            col2.Header = Strings.BookUuid; //DGUU
+            col3.Header = Strings.BookStatus; //DGUP
             // Bindings with the struct
             col0.Binding = new Binding("FileNumber");
             col1.Binding = new Binding("FileName");
@@ -99,7 +117,6 @@ namespace Kindle_Cover_Fixer_V2
             CheckKindle();
             DisableControl(generateButton);
             ControlStrings();
-            DataGridUserPreparation();
             DataGridSystemPreparation();
             DataGridTransferPreparation();
             CheckGitHubNewerVersion();
@@ -117,7 +134,9 @@ namespace Kindle_Cover_Fixer_V2
             libraryPathLabel.Content = Strings.CalibreLib;
             findBooks.Content = Strings.FindBooks;
             generateButton.Content = Strings.GenerateCovers;
+            transferButton.Content = Strings.TransferToKindle;
             mainWindow.Width = mainWindow.ActualWidth + 1; // WorkArround to view correctly the FindBook Buttons
+            
         }
     }
 }

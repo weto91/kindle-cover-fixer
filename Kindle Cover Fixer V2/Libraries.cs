@@ -20,7 +20,7 @@ namespace Kindle_Cover_Fixer_V2
                     DisableControl(generateButton);
                     MessageBox.Show(Strings.CheckLibrary, Strings.CheckLibraryTitle, MessageBoxButton.OK, MessageBoxImage.Error); 
                 }
-                LogLine("INFO", "Library: " + library + " loaded.");
+                LogLine("LIBRARY", "Library: " + library + " loaded.");
             }
             libraryPath.SelectedIndex = 0;
         }

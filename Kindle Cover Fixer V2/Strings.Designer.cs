@@ -97,11 +97,20 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a PASSED.
+        ///   Busca una cadena traducida similar a Is on Kindle?.
         /// </summary>
         internal static string BookPassed {
             get {
                 return ResourceManager.GetString("BookPassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a RESULT.
+        /// </summary>
+        internal static string BookStatus {
+            get {
+                return ResourceManager.GetString("BookStatus", resourceCulture);
             }
         }
         
@@ -133,6 +142,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a  | Can be transferred to Kindle: .
+        /// </summary>
+        internal static string CanTransfer {
+            get {
+                return ResourceManager.GetString("CanTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Please, check that you have a library correctly configured in Calibre..
         /// </summary>
         internal static string CheckLibrary {
@@ -160,11 +178,20 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Close.
+        ///   Busca una cadena traducida similar a Unussed cover deleted..
         /// </summary>
-        internal static string Close {
+        internal static string Cleaned {
             get {
-                return ResourceManager.GetString("Close", resourceCulture);
+                return ResourceManager.GetString("Cleaned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cleaning unused Covers in Kindle.
+        /// </summary>
+        internal static string Cleaning {
+            get {
+                return ResourceManager.GetString("Cleaning", resourceCulture);
             }
         }
         
@@ -178,7 +205,7 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Failure on:.
+        ///   Busca una cadena traducida similar a Failure on: .
         /// </summary>
         internal static string Failure {
             get {
@@ -223,6 +250,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a All the books in your library are listed in the table..
+        /// </summary>
+        internal static string FinishListing {
+            get {
+                return ResourceManager.GetString("FinishListing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Generate Covers.
         /// </summary>
         internal static string GenerateCovers {
@@ -232,7 +268,7 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a All cover(s) generated, total:.
+        ///   Busca una cadena traducida similar a All cover(s) generated, total: .
         /// </summary>
         internal static string Generated {
             get {
@@ -250,11 +286,29 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Can&apos;t generate:.
+        ///   Busca una cadena traducida similar a Can&apos;t generate: .
         /// </summary>
         internal static string GeneratingError {
             get {
                 return ResourceManager.GetString("GeneratingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The unused covers in in your Kindle was deleted..
+        /// </summary>
+        internal static string KindleClean {
+            get {
+                return ResourceManager.GetString("KindleClean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Clean finished.
+        /// </summary>
+        internal static string KindleCleanTitle {
+            get {
+                return ResourceManager.GetString("KindleCleanTitle", resourceCulture);
             }
         }
         
@@ -286,6 +340,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The covers have been transferred to Kindle. All that&apos;s left to do is enjoy!.
+        /// </summary>
+        internal static string KindleTransfer {
+            get {
+                return ResourceManager.GetString("KindleTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Files Transferred.
+        /// </summary>
+        internal static string KindleTransferTitle {
+            get {
+                return ResourceManager.GetString("KindleTransferTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a (New version available).
         /// </summary>
         internal static string NewVersionAv {
@@ -313,6 +385,24 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Generated covers will not be able to be transferred to the Kindle if no cover corresponds to a book currently on Kindle..
+        /// </summary>
+        internal static string NotTransferible {
+            get {
+                return ResourceManager.GetString("NotTransferible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a  of .
         /// </summary>
         internal static string Of {
@@ -322,7 +412,25 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ready.
+        ///   Busca una cadena traducida similar a The covers in Output folder was deleted..
+        /// </summary>
+        internal static string OutputClean {
+            get {
+                return ResourceManager.GetString("OutputClean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Clean finished.
+        /// </summary>
+        internal static string OutputCleanTitle {
+            get {
+                return ResourceManager.GetString("OutputCleanTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ready..
         /// </summary>
         internal static string Ready {
             get {
@@ -376,6 +484,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Transfer to Kindle.
+        /// </summary>
+        internal static string TransferToKindle {
+            get {
+                return ResourceManager.GetString("TransferToKindle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a All covers have been generated.
         /// </summary>
         internal static string TransTitle {
@@ -399,6 +516,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

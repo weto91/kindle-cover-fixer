@@ -9,21 +9,21 @@ namespace Kindle_Cover_Fixer_V2
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.1";
+        public const string AppVersion = "2.2";
         // Determine the output folder path
         public static string OutputFolder()
         {
-            string output = getKindleCoverFixerPath() + @"\Output";
+            string output = GetKindleCoverFixerPath() + @"\Output";
             return output;
         }
         // Determine the log file path
         public static string LogFile()
         {
-            string output = getKindleCoverFixerPath() + @"\Kindle_Cover_Fixer.log";
+            string output = GetKindleCoverFixerPath() + @"\Log\Kindle_Cover_Fixer.log";
             return output;
         }
         // Determine the Kindle Cover Fixer folder path
-        public static string getKindleCoverFixerPath()
+        public static string GetKindleCoverFixerPath()
         {
             string? appData = Environment.GetEnvironmentVariable("APPDATA");
             string result = appData + @"\Kindle Cover Fixer";
@@ -71,6 +71,7 @@ namespace Kindle_Cover_Fixer_V2
             string[] result = resultList.ToArray();
             return result;
         }
+        // Check if file is in use
     }
 
 }
