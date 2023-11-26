@@ -190,7 +190,7 @@
     <value>Kindle Scribe</value>
   </data>
   <data name="NewVersionAv" xml:space="preserve">
-    <value>(New version available)</value>
+    <value> (New version available)</value>
   </data>
   <data name="NewVersionWant" xml:space="preserve">
     <value>Do you want to download and install the new version? \r\n \r\n You will get the following features: \r\n  \r\n</value>
@@ -223,7 +223,7 @@
     <value>All covers have been generated</value>
   </data>
   <data name="UpToDate" xml:space="preserve">
-    <value>(Up to date)</value>
+    <value> (Up to date)</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version </value>
@@ -320,5 +320,14 @@
   </data>
   <data name="KindleNotconnected" xml:space="preserve">
     <value>There is no Kindle connected, so covers cannot be transferred. Please connect the device and try again.</value>
+  </data>
+  <data name="ImageGroup" xml:space="preserve">
+    <value>Your covers: </value>
+  </data>
+  <data name="BookProblem" xml:space="preserve">
+    <value>PROBLEM</value>
+  </data>
+  <data name="BookLibrary" xml:space="preserve">
+    <value>LIBRARY</value>
   </data>
 </root>

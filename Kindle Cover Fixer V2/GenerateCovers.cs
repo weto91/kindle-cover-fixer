@@ -102,7 +102,7 @@ namespace Kindle_Cover_Fixer_V2
                 progressBar.Value++;
                 runningNow.Content = Strings.Finished;
                 transferButton.Visibility = System.Windows.Visibility.Visible;
-                if (connectedDevice.Content.ToString()!.Contains(Strings.KindleOther) || connectedDevice.Content.ToString()!.Contains(Strings.KindleScribe))
+                if (deviceLister.SelectedItem.ToString()!.Contains(Strings.KindleOther) || deviceLister.SelectedItem.ToString()!.Contains(Strings.KindleScribe))
                 {
                     if (bookTransferible > 0)
                     {

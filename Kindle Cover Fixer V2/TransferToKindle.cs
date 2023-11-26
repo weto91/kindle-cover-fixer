@@ -55,7 +55,7 @@ namespace Kindle_Cover_Fixer_V2
         private void TransferFilesCheck(string fileToCopy, string fileName)
         {
             string content = string.Empty;
-            Dispatcher.Invoke(() => content = connectedDevice.Content.ToString()!);
+            Dispatcher.Invoke(() => content = deviceLister.SelectedItem.ToString()!);
             if (content == "Kindle (Other)")
             {
                 TransferOther(fileToCopy, fileName);

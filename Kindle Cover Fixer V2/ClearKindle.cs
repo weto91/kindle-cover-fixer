@@ -19,7 +19,7 @@ namespace Kindle_Cover_Fixer_V2
                 runningNow.Content = Strings.Cleaning;
                 progressBar.Value = 0;
                 Cursor = Cursors.Wait;
-                content = connectedDevice.Content.ToString()!;
+                content = deviceLister.SelectedItem.ToString()!;
             });
             if (content == Strings.KindleOther)
             {

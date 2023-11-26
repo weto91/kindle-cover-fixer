@@ -8,7 +8,7 @@ namespace Kindle_Cover_Fixer_V2
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.4";
+        public const string AppVersion = "2.5";
         // Read or Write settings for the application
         public static bool[] Settings()
         {

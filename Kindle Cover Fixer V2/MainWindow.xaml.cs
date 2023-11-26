@@ -5,8 +5,7 @@ using System.Diagnostics;
 namespace Kindle_Cover_Fixer_V2
 {
     public partial class MainWindow : Window
-    {       
-        string StateDevice = "DSCON";
+    {
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +61,26 @@ namespace Kindle_Cover_Fixer_V2
         {
             Settings settings = new();
             settings.ShowDialog();
+        }
+        private void OpenOutput_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", UsefulVariables.OutputFolder());
+        }
+        private void CheckLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridUserPreparationCalibre();
+            CheckCalibreBooks();
+        }
+        private void CheckKindle_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridUserPreparationKindle();
+            CheckKindleBooks();
+        }
+
+        private void LibraryPath_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Thread imageList = new(loadImages);
+            imageList.Start();
         }
     }
 }

@@ -190,7 +190,7 @@
     <value>Kindle Scribe</value>
   </data>
   <data name="NewVersionAv" xml:space="preserve">
-    <value>(Actualización disponible)</value>
+    <value> (Actualización disponible)</value>
   </data>
   <data name="NewVersionWant" xml:space="preserve">
     <value>¿Quieres descargar e instalar la nueva versión? \r\n \r\n Obtendras las siguientes características: \r\n \r\n</value>
@@ -223,7 +223,7 @@
     <value>Se han generado todas las portadas</value>
   </data>
   <data name="UpToDate" xml:space="preserve">
-    <value>(Actualizado)</value>
+    <value> (Actualizado)</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versión </value>
@@ -320,5 +320,14 @@
   </data>
   <data name="KindleNotconnected" xml:space="preserve">
     <value>No hay ningún Kindle conectado, por lo que las portadas no se pueden transferir. Por favor, Conecte el dispositivo e inténtelo de nuevo.</value>
+  </data>
+  <data name="ImageGroup" xml:space="preserve">
+    <value>Tus portadas: </value>
+  </data>
+  <data name="BookProblem" xml:space="preserve">
+    <value>PROBLEMA</value>
+  </data>
+  <data name="BookLibrary" xml:space="preserve">
+    <value>LIBRERÍA</value>
   </data>
 </root>
