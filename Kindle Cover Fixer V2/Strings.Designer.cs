@@ -79,6 +79,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a LIBRARY.
+        /// </summary>
+        internal static string BookLibrary {
+            get {
+                return ResourceManager.GetString("BookLibrary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a All book listed.
         /// </summary>
         internal static string BookListed {
@@ -111,6 +120,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string BookPassed {
             get {
                 return ResourceManager.GetString("BookPassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a PROBLEM.
+        /// </summary>
+        internal static string BookProblem {
+            get {
+                return ResourceManager.GetString("BookProblem", resourceCulture);
             }
         }
         
@@ -394,6 +412,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Your covers: .
+        /// </summary>
+        internal static string ImageGroup {
+            get {
+                return ResourceManager.GetString("ImageGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a The unused covers in in your Kindle was deleted..
         /// </summary>
         internal static string KindleClean {
@@ -466,7 +493,7 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a (New version available).
+        ///   Busca una cadena traducida similar a  (New version available).
         /// </summary>
         internal static string NewVersionAv {
             get {
@@ -646,7 +673,7 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a (Up to date).
+        ///   Busca una cadena traducida similar a  (Up to date).
         /// </summary>
         internal static string UpToDate {
             get {

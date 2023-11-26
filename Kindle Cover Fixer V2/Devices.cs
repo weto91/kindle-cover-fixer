@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Timers;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -22,9 +24,21 @@ namespace Kindle_Cover_Fixer_V2
         // Check the kindle type that you have connected
         private void CheckKindleType()
         {
+            int countDevices = 0;
+            string selected = string.Empty;
+            Collection<string> list = new();
+            Dispatcher.Invoke(() =>
+            {
+                countDevices = deviceLister.Items.Count;
+                if (countDevices > 0)
+                {
+                    selected = deviceLister.SelectedItem.ToString()!;
+                }                
+            });
             var devices = MediaDevice.GetDevices();
             DriveInfo[] drives = DriveInfo.GetDrives();
             bool otherKindle = false;
+            bool scribeKindle = false;
             foreach (DriveInfo drive in drives)
             {
                 if (drive.IsReady)
@@ -32,54 +46,60 @@ namespace Kindle_Cover_Fixer_V2
                     if (drive.VolumeLabel.Contains("Kindle"))
                     {
                         otherKindle = true;
+                        if (selected == Strings.KindleOther)
+                        {
+                            list.Insert(0, Strings.KindleOther);                       
+                        }
+                        else
+                        {
+                            list.Add(Strings.KindleOther);
+                        }                      
                     }
                 }
             }
             if (devices.Any())
             {
-                if (devices.First().FriendlyName == "Kindle Scribe")
+                foreach (MediaDevice device in devices)
                 {
-                    Dispatcher.Invoke(() => {
-                        connectedDevice.Content = Strings.KindleScribe;
-                    });
-                    LogState("Connected Kindle Scribe", "CONNT", "KINDLE");
-                }
-                else if (otherKindle)
-                {
-                    Dispatcher.Invoke(() => {
-                        connectedDevice.Content = Strings.KindleOther;
-                    });
-                    LogState("Connected Kindle (Other)", "CONNT", "KINDLE");
-                }
-                else
-                {
-                    Dispatcher.Invoke(() => {
-                        connectedDevice.Content = Strings.KindleNone;
-                    });
-                    LogState("Device disconnected", "DSCON", "DISCON");
+                    if (device.FriendlyName == "Kindle Scribe")
+                    {
+                        scribeKindle = true;
+                        if (selected == Strings.KindleScribe)
+                        {
+                            list.Insert(0, Strings.KindleScribe);
+                        }
+                        else
+                        {
+                            list.Add(Strings.KindleScribe);
+                        }
+                    }
                 }
             }
-            else
+            if (!otherKindle && !scribeKindle) 
             {
-                Dispatcher.Invoke(() => {
-                    connectedDevice.Content = Strings.KindleNone;
+                Dispatcher.Invoke(() =>
+                {
+                    list.Add(Strings.KindleNone);
                 });
-                LogState("Device disconnected", "DSCON", "DISCON");
             }
-        }
-        // Log device status
-        private void LogState(string description, string newState, string youAre)
-        {
-            if (StateDevice == "DSCON" && youAre == "KINDLE")
+            Dispatcher.Invoke(() =>
             {
-                LogLine("DEVICE", description);
-                StateDevice = newState;
-            }
-            else if (StateDevice == "CONNT" && youAre == "DSCON")
-            {
-                LogLine("DEVICE", description);
-                StateDevice = newState;
-            }
+                deviceLister.Items.Clear();
+                foreach (string device in list)
+                {
+                    deviceLister.Items.Add(device);
+                }
+                if (deviceLister.Items.Count != countDevices)
+                {
+                    string deviceList = string.Empty;
+                    foreach (string device in deviceLister.Items)
+                    {
+                        deviceList += device + " | ";
+                    }
+                    LogLine("DEVICE", "Device connected or disconnected, new device list: " + deviceList);
+                }
+                deviceLister.SelectedIndex = 0;
+            });
         }
     }
 }

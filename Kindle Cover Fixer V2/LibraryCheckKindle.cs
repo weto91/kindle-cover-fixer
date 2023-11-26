@@ -13,7 +13,7 @@ namespace Kindle_Cover_Fixer_V2
             bool result = false;
             Dispatcher.Invoke(() =>
             {
-                content = connectedDevice.Content.ToString()!;
+                content = deviceLister.SelectedItem.ToString()!;
             });
             if (content == Strings.KindleOther)
             {
