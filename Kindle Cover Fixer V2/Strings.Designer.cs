@@ -294,6 +294,18 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Problems (Explanation):
+        ///- COVER: The book does not have a cover
+        ///- UUID: The book does not have a UUID
+        ///- FORMAT: The book is not in .mobi/.azw3 format.
+        /// </summary>
+        internal static string ErrorExplanation {
+            get {
+                return ResourceManager.GetString("ErrorExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Exit.
         /// </summary>
         internal static string Exit {
@@ -371,6 +383,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string FinishListingWithErrors {
             get {
                 return ResourceManager.GetString("FinishListingWithErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a FORMAT.
+        /// </summary>
+        internal static string Format {
+            get {
+                return ResourceManager.GetString("Format", resourceCulture);
             }
         }
         
@@ -564,11 +585,20 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No cover.
+        ///   Busca una cadena traducida similar a COVER.
         /// </summary>
         internal static string NoCover {
             get {
                 return ResourceManager.GetString("NoCover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modified in Calibre.
+        /// </summary>
+        internal static string NoInCalibre {
+            get {
+                return ResourceManager.GetString("NoInCalibre", resourceCulture);
             }
         }
         
@@ -591,7 +621,7 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No UUID.
+        ///   Busca una cadena traducida similar a UUID.
         /// </summary>
         internal static string NoUuid {
             get {

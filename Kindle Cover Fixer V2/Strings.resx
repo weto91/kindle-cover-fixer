@@ -339,10 +339,10 @@ https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
     <value>LIBRARY</value>
   </data>
   <data name="NoCover" xml:space="preserve">
-    <value>No cover</value>
+    <value>COVER</value>
   </data>
   <data name="NoUuid" xml:space="preserve">
-    <value>No UUID</value>
+    <value>UUID</value>
   </data>
   <data name="NoProblem" xml:space="preserve">
     <value>All right</value>
@@ -355,5 +355,17 @@ https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
   </data>
   <data name="ConnectKindle" xml:space="preserve">
     <value>Please,connect the Kindle.</value>
+  </data>
+  <data name="NoInCalibre" xml:space="preserve">
+    <value>Modified in Calibre</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>FORMAT</value>
+  </data>
+  <data name="ErrorExplanation" xml:space="preserve">
+    <value>Problems (Explanation):
+- COVER: The book does not have a cover
+- UUID: The book does not have a UUID
+- FORMAT: The book is not in .mobi/.azw3 format</value>
   </data>
 </root>

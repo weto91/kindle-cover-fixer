@@ -55,6 +55,7 @@
             <DataGrid x:Name="DataGridUser" Grid.Row="2" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
             <DataGrid x:Name="DataGridSystem" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True"/>
             <DataGrid x:Name="DataGridTransfer" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
+            <TextBox Name="formatExplain" Grid.Column="1"  BorderThickness="0" FontSize="10" HorizontalAlignment="Center" Margin="0,304,0,0" TextWrapping="Wrap" Visibility="Hidden" Text="" VerticalAlignment="Top" Width="160" Height="207" IsReadOnly="True"/>
         </Grid>
         <Menu>
             <MenuItem Name="fileButt" Header="File">

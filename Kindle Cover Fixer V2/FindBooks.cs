@@ -49,7 +49,7 @@ namespace Kindle_Cover_Fixer_V2
                     string problems = string.Empty;
                     string bookPath = library + @"\" + myReader["path"].ToString();
                     string uuid = myReader["uuid"].ToString()!;
-                    string bookUuid = RealBookUuid(bookPath);
+                    string[] bookUuid = RealBookUuid(bookPath, uuid);
                     string bookTitle = myReader["title"].ToString()!;
                     bool checkError = false;
                     if (IsOnKindle(uuid, bookCounter))
@@ -64,30 +64,33 @@ namespace Kindle_Cover_Fixer_V2
                     if (!File.Exists(bookPath + @"\cover.jpg"))
                     {
                         checkError = true;
-                        problems = Strings.NoCover;
-
+                        problems = "COVER";
                     }
-                    else
+                    if (bookUuid[0].Length != 36)
                     {
-                        problems = Strings.NoProblem;
-                    }
-                    if (!Regex.IsMatch(uuid, "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", RegexOptions.IgnoreCase))
-                    {
+                        if (problems.Contains("COVER"))
+                        {
+                            problems += ", ";
+                        }
                         checkError = true;
-                        problems = Strings.NoUuid;
+                        problems += "UUID";
                     }
-                    else
+                    if (bookUuid[1].Contains("WF"))
                     {
-                        problems = Strings.NoProblem;
+                        if (problems.Length > 1)
+                        {
+                            problems += ", ";
+                        }
+                        problems += "FORMAT";
                     }
                     if (checkError)
-                    {                    
-                        errorCounter++;
-                    }
-                    if (bookUuid.Length != 36)
                     {
-                        checkError = true;
-                        problems = Strings.NoUuid;
+                        errorCounter++;
+                        Dispatcher.Invoke(() =>
+                        {
+                            formatExplain.Text = Strings.ErrorExplanation;
+                            formatExplain.Visibility = System.Windows.Visibility.Visible;
+                        });
                     }
                     LogLine("LIST", uuid +  " | " + bookTitle! + " | Transferable: " + InKindle + " | Errors: " + problems);
                     string generateIt = Strings.No;
@@ -96,9 +99,9 @@ namespace Kindle_Cover_Fixer_V2
                         if (!checkError)
                         {
                             generateIt = Strings.Yes;
-                            DataGridSystem.Items.Add(new DataGridSystemCols { FileNumber = bookCounter, FileName = bookTitle!, FilePath = bookPath, FileUuid = bookUuid, FileCan = generateIt });
+                            DataGridSystem.Items.Add(new DataGridSystemCols { FileNumber = bookCounter, FileName = bookTitle!, FilePath = bookPath, FileUuid = bookUuid[0], FileCan = generateIt });
                         }                      
-                        DataGridUser.Items.Add(new DataGridFindBooks { FileNumber = bookCounter.ToString(), FileName = bookTitle!, FileUuid = bookUuid, FileInKindle = InKindle, FileProblems = problems});
+                        DataGridUser.Items.Add(new DataGridFindBooks { FileNumber = bookCounter.ToString(), FileName = bookTitle!, FileUuid = bookUuid[0], FileInKindle = InKindle, FileProblems = problems});
                         DataGridUser.ScrollIntoView(DataGridUser.Items.GetItemAt(DataGridUser.Items.Count - 1));
                     });              
                     bookCounter++;
