@@ -1,7 +1,9 @@
-﻿using System;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.Data;
 using System.Threading;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -11,18 +13,21 @@ namespace Kindle_Cover_Fixer_V2
         private void FindBooksTask()
         {
             string library = string.Empty;
+            IsOnKindlePreparation();
             Dispatcher.Invoke(() =>
             {
                 transferButton.IsEnabled = false;
                 generateButton.IsEnabled = false;
-                DataGridUserPreparation();
-                library = libraryPath.Text;
-                resultLabel.Content = String.Empty;
-                runningNow.Content = Strings.Finding;
-                DataGridUser.Items.Clear();
+                transferButton.IsEnabled = false;
+                InitDataGridFindBooks();
                 DataGridSystem.Items.Clear();
+                library = libraryPath.Text;
+                resultLabel.Content = string.Empty;
+                runningNow.Content = Strings.Finding;
+                
             });
-            string cs = @"URI=file:" + library + @"\metadata.db";
+            File.Copy(library + @"\metadata.db", UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.db", true);
+            string cs = @"URI=file:" + UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.db";
             using SQLiteConnection connection = new(cs);
             connection.Open();
             using (SQLiteCommand selectCMD = connection.CreateCommand())
@@ -37,25 +42,63 @@ namespace Kindle_Cover_Fixer_V2
                 selectCMD.CommandType = CommandType.Text;
                 SQLiteDataReader myReader = selectCMD.ExecuteReader();
                 int bookCounter = 1;
+                int errorCounter = 0;
                 while (myReader.Read())
                 {
-                    string canDoIt = String.Empty;
+                    string InKindle = string.Empty;
+                    string problems = string.Empty;
                     string bookPath = library + @"\" + myReader["path"].ToString();
-                    string? bookUuid = myReader["uuid"].ToString();
-                    string? bookTitle = myReader["title"].ToString();
-                        if (IsOnKindle(bookUuid!, bookCounter))
-                        {
-                            canDoIt = Strings.Yes;                     
-                        }
-                        else
-                        {
-                            canDoIt = Strings.No;                                                 
-                        }
-                    LogLine("LIST", bookUuid +  " | " + bookTitle! + " | Transferable: " + canDoIt);
-                    Dispatcher.Invoke(() =>
+                    string uuid = myReader["uuid"].ToString()!;
+                    string bookUuid = RealBookUuid(bookPath);
+                    string bookTitle = myReader["title"].ToString()!;
+                    bool checkError = false;
+                    if (IsOnKindle(uuid, bookCounter))
+                    { 
+                        InKindle = Strings.Yes;                     
+                    }
+                    else
                     {
-                        DataGridSystem.Items.Add(new DataGridSystemCols { FileNumber = bookCounter, FileName = bookTitle!, FilePath = bookPath, FileUuid = bookUuid!, FileCan = canDoIt });
-                        DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookCounter.ToString(), FileName = bookTitle!, FileUuid = bookUuid!, FileCan = canDoIt });
+                        checkError = true;
+                        InKindle = Strings.No;
+                    }
+                    if (!File.Exists(bookPath + @"\cover.jpg"))
+                    {
+                        checkError = true;
+                        problems = Strings.NoCover;
+
+                    }
+                    else
+                    {
+                        problems = Strings.NoProblem;
+                    }
+                    if (!Regex.IsMatch(uuid, "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", RegexOptions.IgnoreCase))
+                    {
+                        checkError = true;
+                        problems = Strings.NoUuid;
+                    }
+                    else
+                    {
+                        problems = Strings.NoProblem;
+                    }
+                    if (checkError)
+                    {                    
+                        errorCounter++;
+                    }
+                    if (bookUuid.Length != 36)
+                    {
+                        checkError = true;
+                        problems = Strings.NoUuid;
+                    }
+                    LogLine("LIST", uuid +  " | " + bookTitle! + " | Transferable: " + InKindle + " | Errors: " + problems);
+                    string generateIt = Strings.No;
+                    Dispatcher.Invoke(() =>
+                    {   
+                        if (!checkError)
+                        {
+                            generateIt = Strings.Yes;
+                            DataGridSystem.Items.Add(new DataGridSystemCols { FileNumber = bookCounter, FileName = bookTitle!, FilePath = bookPath, FileUuid = bookUuid, FileCan = generateIt });
+                        }                      
+                        DataGridUser.Items.Add(new DataGridFindBooks { FileNumber = bookCounter.ToString(), FileName = bookTitle!, FileUuid = bookUuid, FileInKindle = InKindle, FileProblems = problems});
                         DataGridUser.ScrollIntoView(DataGridUser.Items.GetItemAt(DataGridUser.Items.Count - 1));
                     });              
                     bookCounter++;
@@ -66,14 +109,23 @@ namespace Kindle_Cover_Fixer_V2
                         progressBar.Value++;
                     });
                 }
+                connection.Close();
                 Dispatcher.Invoke(() =>
                 {
                     progressBar.Value++;
-                    resultLabel.Content = Strings.FinishListing;
-                });                   
-                LogLine("SUCCESS", "Book listing process finished.");
+                    if (errorCounter > 0)
+                    {
+                        resultLabel.Content = Strings.FinishListingWithErrors + errorCounter + Strings.Of + DataGridUser.Items.Count + Strings.HaveError;
+                        LogLine("ERROR", "Book listing process finished with errors in: " + errorCounter + " of " + DataGridUser.Items.Count + "Books" );
+                    }
+                    else
+                    {
+                        resultLabel.Content = Strings.FinishListing;
+                        LogLine("SUCCESS", "Book listing process finished.");
+                    }                
+                });             
             }
-            connection.Close();
+            
             Thread resizeEnd = new(ResizeThread);
             resizeEnd.Start();
             Dispatcher.Invoke(() => 

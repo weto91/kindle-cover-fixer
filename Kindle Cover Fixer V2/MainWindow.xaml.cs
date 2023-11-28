@@ -10,21 +10,19 @@ namespace Kindle_Cover_Fixer_V2
         {
             InitializeComponent();
         }
-        // Run when generateButton was clicked
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             Thread task = new(CoverGenerationTask);
             task.Start();
         }      
-        // Find the books on selected Calibre library
         private void FindBooks_Click(object sender, RoutedEventArgs e)
         {
             Thread task = new(FindBooksTask);
             task.Start();
         }
-        // Log when the app closing
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            OutputCreateOrDelete();
             LogLine("INFO", "The application is closing. Bye!");
             LogToFile();
         }

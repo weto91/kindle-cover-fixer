@@ -29,6 +29,10 @@ namespace Kindle_Cover_Fixer_V2
             {
                 DataGridUser.Columns[1].Width = DataGridUser.ActualWidth - (DataGridUser.Columns[0].ActualWidth + DataGridUser.Columns[2].ActualWidth + DataGridUser.Columns[3].ActualWidth + 25);
             }
+            else if (DataGridUser.Columns.Count == 5)
+            {
+                DataGridUser.Columns[1].Width = DataGridUser.ActualWidth - (DataGridUser.Columns[0].ActualWidth + DataGridUser.Columns[2].ActualWidth + DataGridUser.Columns[3].ActualWidth + DataGridUser.Columns[4].ActualWidth + 20);
+            }
         }
         // Disable controls
         private static void DisableControl(Button button)

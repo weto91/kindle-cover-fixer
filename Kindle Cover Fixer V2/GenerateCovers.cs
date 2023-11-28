@@ -12,6 +12,7 @@ namespace Kindle_Cover_Fixer_V2
             System.Windows.Controls.ItemCollection? dgSystemItems = null;
             Dispatcher.Invoke(() =>
             {
+                generateButton.IsEnabled = false;
                 DataGridUserPreparationGen();
                 resultLabel.Content = string.Empty;
                 runningNow.Content = Strings.Generating;
@@ -26,26 +27,16 @@ namespace Kindle_Cover_Fixer_V2
             foreach (DataGridSystemCols dr in dgSystemItems!)
             {           
                 string inputPath = dr.FilePath + @"\cover.jpg";
-                if (!string.IsNullOrEmpty(inputPath) && !string.IsNullOrEmpty(dr.FilePath) && !string.IsNullOrEmpty(dr.FileUuid))
-                {
+                    bookTransferible++;
                     string outputPath = UsefulVariables.OutputFolder() + @"\thumbnail_" + dr.FileUuid + @"_EBOK_portrait.jpg";
-                    File.Copy(inputPath, outputPath, true);
-                    if (File.Exists(outputPath))
-                    {
-                        File.Delete(outputPath);
-                    }
-                    ImageResizer(inputPath, outputPath, UsefulVariables.Settings()[0], UsefulVariables.Settings()[1]);
-                    if (dr.FileCan == Strings.Yes)
-                    {
-                        bookTransferible++;
-                    }
+                    ImageResizer(inputPath, outputPath, UsefulVariables.Settings()[0], UsefulVariables.Settings()[1]);               
                     if (File.Exists(outputPath))
                     {
                         bookSuccess++;
                         Dispatcher.Invoke(() =>
                         {
                             double bookNumber = progressBar.Value + 1;
-                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Cover generated" });
+                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookNumber.ToString(), FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Cover generated" });
                         });
                         LogLine("SUCCESS", dr.FileName + " Cover generated");
                     }
@@ -55,26 +46,15 @@ namespace Kindle_Cover_Fixer_V2
                         Dispatcher.Invoke(() =>
                         {
                             double bookNumber = progressBar.Value + 1;
-                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });                         
+                            DataGridUser.Items.Add(new DataGridUserCols { FileNumber = bookNumber.ToString(), FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });
                         });
                         LogLine("FAILURE", dr.FileName + " Cover generation failed");
-                    }
-                }
-                else
-                {
-                    bookFailure++;
+                    }                             
                     Dispatcher.Invoke(() =>
                     {
-                        double bookNumber = progressBar.Value + 1;
-                        DataGridUser.Items.Add(new DataGridUserCols { FileNumber = int.Parse(bookNumber.ToString()) + @" of " + DataGridSystem.Items.Count, FileName = dr.FileName!, FileUuid = dr.FileUuid!, FileCan = "Failure" });
+                        DataGridUser.ScrollIntoView(DataGridUser.Items.GetItemAt(DataGridUser.Items.Count - 1));
+                        progressBar.Value++;
                     });
-                    LogLine("FAILURE", dr.FileName + " Cover generation failed");
-                }
-                Dispatcher.Invoke(() =>
-                {
-                    DataGridUser.ScrollIntoView(DataGridUser.Items.GetItemAt(DataGridUser.Items.Count - 1));
-                    progressBar.Value++;
-                });
                 Thread resize = new(ResizeThread);
                 resize.Start();
             }

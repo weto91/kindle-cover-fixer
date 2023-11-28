@@ -1,5 +1,5 @@
 ﻿using MediaDevices;
-using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
 
@@ -9,73 +9,81 @@ namespace Kindle_Cover_Fixer_V2
     {
         private bool IsOnKindle(string uuid, int firstTime)
         {
+            bool canDoIt = false;
+            string metadataFile = UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.kcf";
+            if (File.Exists(metadataFile))
+            {
+                string text = File.ReadAllText(metadataFile);
+                if (text.Contains(uuid))
+                {
+                    canDoIt = true;
+                }              
+            }
+            return canDoIt;
+        }
+        private void IsOnKindlePreparation()
+        {
+            if (File.Exists(UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.calibre"))
+            {
+                File.Delete(UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.calibre");
+            }
             string content = string.Empty;
-            bool result = false;
             Dispatcher.Invoke(() =>
             {
-                content = deviceLister.SelectedItem.ToString()!;
+                    content = deviceLister.Text;             
             });
             if (content == Strings.KindleOther)
             {
-                result = IsOnKindleOther(uuid);
+                IsOnKindleOther();
             }
             else if (content == Strings.KindleScribe)
             {
-                result = IsOnKindleScribe(uuid, firstTime);
+                IsOnKindleScribe();
             }
-            return result;
         }
-        private static bool IsOnKindleOther(string uuid)
+        private static void IsOnKindleOther()
         {
-            bool canDoIt = false;
             DriveInfo[] drives = DriveInfo.GetDrives();
             foreach (DriveInfo drive in drives)
             {
                 if (drive.VolumeLabel.Contains("Kindle") && drive.IsReady)
                 {
-                    List<string> resultList = new();
-                    string? path = drive.Name;
-                    string configFile;
-                    if (path?.Length > 0)
-                    {
-                        configFile = path + @"metadata.calibre";
-                        string text = File.ReadAllText(configFile);
-                        if (text.Contains(uuid))
-                        {
-                            canDoIt = true;
-                        }
-                    }
+                    File.Copy(drive.Name + @"metadata.calibre" , UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.calibre", true);
+                    prepareFile();
                 }
             }
-            return canDoIt;
         }
-        private static bool IsOnKindleScribe(string uuid, int firstTime)
+        private static void IsOnKindleScribe()
         {
-            string whereToCopy = UsefulVariables.GetKindleCoverFixerPath() + @"\metadata_scribe.calibre";
-            bool canDoIt = false;
-            if (firstTime == 1)
-            {              
-                var devicess = MediaDevice.GetDevices();
-                using var device = devicess.First(d => d.FriendlyName == "Kindle Scribe");
-                device.Connect();
-                var objects = device.FunctionalObjects(FunctionalCategory.Storage);
-                MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
-                using (FileStream stream = File.OpenWrite(whereToCopy))
-                {
-                    device.DownloadFile(@"\" + deviceInfo.Description + @"\metadata.calibre", stream);
-                }
-                device.Disconnect();
-            }      
-            List<string> resultList = new();
-            if (File.Exists(whereToCopy))
+            string whereToCopy = UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.calibre";
+            var devices = MediaDevice.GetDevices();
+            foreach (MediaDevice device in devices)
             {
-                string text = File.ReadAllText(whereToCopy);
-                if (text.Contains(uuid))
+                if (device.FriendlyName == "Kindle Scribe")
                 {
-                    canDoIt = true;
+                    device.Connect();
+                    var objects = device.FunctionalObjects(FunctionalCategory.Storage);
+                    MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
+                    using (FileStream stream = File.OpenWrite(whereToCopy))
+                    {
+                        device.DownloadFile(@"\" + deviceInfo.Description + @"\metadata.calibre", stream);
+                    }
+                    device.Disconnect();
+                    prepareFile();
                 }
             }
-            return canDoIt;
+        }
+        private static void prepareFile()
+        {
+            string text = File.ReadAllText(UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.calibre");
+            JArray libJson = JArray.Parse(text);
+            string result = string.Empty;
+            foreach (JObject obj in libJson)
+            {
+                JToken token = obj["uuid"]!;
+                result += token.ToString() + "\r\n";
+            }
+            File.WriteAllText(UsefulVariables.GetKindleCoverFixerPath() + @"\metadata.kcf", result);          
         }
     }
 }

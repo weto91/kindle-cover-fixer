@@ -24,7 +24,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Label   Name="libraryPathLabel" Content="Calibre library:" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Height="25" FontFamily="./#Segoe UI" FontSize="13"/>
             <ComboBox x:Name="libraryPath" VerticalAlignment="Center" Margin="5,0,5,0" Height="25" FontFamily="./#Segoe UI" FontSize="13" SelectionChanged="LibraryPath_SelectionChanged"/>
-            <Button  Name="findBooks" Content="Find books" Height="25" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" Click="FindBooks_Click" Style="{DynamicResource ButtonKey}"/>
+            <Button  Name="findBooks" IsEnabled="False" Content="Find books" Height="25" VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Right" Click="FindBooks_Click" Style="{DynamicResource ButtonKey}"/>
         </StackPanel>
         <StatusBar Grid.Row="4">
             <Grid Name="statusStripGrid" Margin="5,0,5,0">
@@ -52,8 +52,6 @@
             <GroupBox Name="imageGroupBox" Header="Your covers" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5,5,5,5">
                 <Image Name="coverShow" Height="255" Grid.Row="2" VerticalAlignment="Center" Width="170" HorizontalAlignment="Center"/>
             </GroupBox>
-
-
             <DataGrid x:Name="DataGridUser" Grid.Row="2" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>
             <DataGrid x:Name="DataGridSystem" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True"/>
             <DataGrid x:Name="DataGridTransfer" Grid.Row="2" Visibility="Hidden" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Visible" HorizontalGridLinesBrush="#FFC1C1C1" VerticalGridLinesBrush="#FFC1C1C1" HeadersVisibility="Column" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"/>

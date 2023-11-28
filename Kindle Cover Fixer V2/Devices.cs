@@ -10,6 +10,7 @@ namespace Kindle_Cover_Fixer_V2
 {
     public partial class MainWindow
     {
+        bool firstTime = true;
         private void CheckKindle()
         {
             Timer aTimer = new(2000);
@@ -97,8 +98,25 @@ namespace Kindle_Cover_Fixer_V2
                         deviceList += device + " | ";
                     }
                     LogLine("DEVICE", "Device connected or disconnected, new device list: " + deviceList);
-                }
+                } 
                 deviceLister.SelectedIndex = 0;
+                if (deviceLister.Text == Strings.KindleOther || deviceLister.Text == Strings.KindleScribe)
+                {
+                    if (firstTime)
+                    {
+                        runningNow.Content = Strings.Ready;
+                        firstTime = false;
+                    }
+                    
+                    findBooks.IsEnabled = true;
+                }
+                else
+                {
+                    findBooks.IsEnabled = false;
+                    generateButton.IsEnabled = false;
+                    transferButton.IsEnabled = false;
+                    runningNow.Content = Strings.ConnectKindle;
+                }
             });
         }
     }

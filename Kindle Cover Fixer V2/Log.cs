@@ -6,7 +6,7 @@ namespace Kindle_Cover_Fixer_V2
     public partial class MainWindow
     {
         string logNewLine = string.Empty;
-        // Log file new line generator
+        // Log line generator
         private void LogLine(string logType, string logDescription)
         {
             logNewLine += File.ReadAllText(UsefulVariables.LogFile()) + "[" + logType + "] " + DateTime.Now.ToString() + " | " + logDescription + "\r\n";               

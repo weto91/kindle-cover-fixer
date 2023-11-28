@@ -316,7 +316,15 @@
     <value>Las imágenes generadas no podrán ser transferidas</value>
   </data>
   <data name="CantTransfer" xml:space="preserve">
-    <value>Las imágenes se generaron en el directorio de salida, pero no podrán transferirse al Kindle. Esto ocurre porque no tiene libros en común entre su biblioteca calibre y su biblioteca en el dispositivo. Si ha modificado algún detalle menor de los libros en Calibre, el cambio no se sincronizará con su Kindle, por favor: Vuelva a enviar los libros de Calibre al Kindle y ejecute esta aplicación nuevamente.</value>
+    <value>No se ha generado ninguna imagen. Esto puede ocurrir porque:
+
+- No hay libros de esta biblioteca en el Kindle
+- Ningún libro de esta biblioteca tiene portada.
+- Ningún libro de esta biblioteca tiene un UUID asociado
+
+Para aprender cómo identificar y resolver estos problemas, visite:
+
+https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
   </data>
   <data name="KindleNotconnected" xml:space="preserve">
     <value>No hay ningún Kindle conectado, por lo que las portadas no se pueden transferir. Por favor, Conecte el dispositivo e inténtelo de nuevo.</value>
@@ -329,5 +337,23 @@
   </data>
   <data name="BookLibrary" xml:space="preserve">
     <value>LIBRERÍA</value>
+  </data>
+  <data name="NoCover" xml:space="preserve">
+    <value>Sin portada</value>
+  </data>
+  <data name="NoUuid" xml:space="preserve">
+    <value>Sin UUID</value>
+  </data>
+  <data name="NoProblem" xml:space="preserve">
+    <value>Todo correcto</value>
+  </data>
+  <data name="FinishListingWithErrors" xml:space="preserve">
+    <value>Todos los libros han sido listados, pero: </value>
+  </data>
+  <data name="HaveError" xml:space="preserve">
+    <value> tienen algún error. Por favor, revisa las dos últimas columnas de la tabla.</value>
+  </data>
+  <data name="ConnectKindle" xml:space="preserve">
+    <value>Por favor, conecta el Kindle.</value>
   </data>
 </root>

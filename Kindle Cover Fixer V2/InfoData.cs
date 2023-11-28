@@ -8,7 +8,7 @@ namespace Kindle_Cover_Fixer_V2
     public class UsefulVariables
     {
         // Define the application version
-        public const string AppVersion = "2.5";
+        public const string AppVersion = "2.6";
         // Read or Write settings for the application
         public static bool[] Settings()
         {
@@ -88,6 +88,21 @@ namespace Kindle_Cover_Fixer_V2
             }
             string[] result = resultList.ToArray();
             return result;
+        }
+        public static bool FileIsLocked(string strFullFileName)
+        {
+            bool blnReturn = false;
+            FileStream fs;
+            try
+            {
+                fs = File.Open(strFullFileName, FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
+                fs.Close();
+            }
+            catch (IOException)
+            {
+                blnReturn = true;
+            }
+            return blnReturn;
         }
     }
 }

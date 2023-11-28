@@ -5,15 +5,15 @@ using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
 {
-    // This file have the functions to the file transfer to kindle
     public partial class MainWindow
     {
-        // Prepare the transfer task and send it to final tasks
         private void TransferFilesToKindle()
         {
+            IsOnKindlePreparation();
             string[] covers = Directory.GetFiles(UsefulVariables.OutputFolder());
             Dispatcher.Invoke(() =>
             {
+                generateButton.IsEnabled = false;
                 runningNow.Content = Strings.Transferring; 
                 progressBar.Maximum = covers.Length;
                 progressBar.Value = 0;
@@ -31,10 +31,7 @@ namespace Kindle_Cover_Fixer_V2
                     double fileNumber = progressBar.Value + 1;
                     DataGridTransfer.Items.Add(new DataGridTransferCols { FileNumber = @"[" + fileNumber + @"/" + covers.Length + @"]", FileName = name, FileSize = size.ToString() });
                 });
-                if (IsOnKindle(uuid[1], bookCounter))
-                {
-                    TransferFilesCheck(cover, name);
-                }
+                TransferFilesCheck(cover, name);
                 Dispatcher.Invoke(() =>
                 {
                     progressBar.Value++;
@@ -51,21 +48,23 @@ namespace Kindle_Cover_Fixer_V2
             string messageTitle = Strings.KindleTransferTitle;
             MessageBox.Show(message, messageTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        // Check device and start the transfer Task
         private void TransferFilesCheck(string fileToCopy, string fileName)
         {
             string content = string.Empty;
-            Dispatcher.Invoke(() => content = deviceLister.SelectedItem.ToString()!);
-            if (content == "Kindle (Other)")
+            Dispatcher.Invoke(() => 
+            {
+                content = deviceLister.Text;
+            });
+
+            if (content == Strings.KindleOther)
             {
                 TransferOther(fileToCopy, fileName);
             }
-            else if (content == "Kindle Scribe")
+            else if (content == Strings.KindleScribe)
             {
                 TransferScribe(fileToCopy, fileName);
             }
         }
-        // Transfer to Other Task
         private void TransferOther(string fileToCopy, string fileName)
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
@@ -85,11 +84,10 @@ namespace Kindle_Cover_Fixer_V2
                 }
             }
         }
-        // Transfer to Scribe Task
         private void TransferScribe(string fileToCopy, string fileName)
         {
-            var devicess = MediaDevice.GetDevices();
-            using var device = devicess.First(d => d.FriendlyName == "Kindle Scribe");
+            var devices = MediaDevice.GetDevices();
+            using var device = devices.First(d => d.FriendlyName == "Kindle Scribe");
             device.Connect();
             var objects = device.FunctionalObjects(FunctionalCategory.Storage);
             MediaStorageInfo deviceInfo = device.GetStorageInfo(objects.First());
@@ -108,7 +106,6 @@ namespace Kindle_Cover_Fixer_V2
                 else
                 {
                     LogLine("SUCCESS", "Copy file (Scribe): " + @"\" + deviceInfo.Description + @"\system\thumbnails\" + fileName);
-
                 }
             }
             device.Disconnect();

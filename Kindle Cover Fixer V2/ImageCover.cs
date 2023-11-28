@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Data;
 using System.Threading;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace Kindle_Cover_Fixer_V2
 {
@@ -33,7 +34,10 @@ namespace Kindle_Cover_Fixer_V2
                     while (myReader.Read())
                     {
                         string bookPath = library + @"\" + myReader["path"].ToString() + @"\cover.jpg";
-                        data.Add(bookPath);
+                        if (File.Exists(bookPath))
+                        {
+                            data.Add(bookPath);
+                        }                      
                     }
                 }
                 while (true)

@@ -187,7 +187,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The images have been generated in the output directory, but they will not be able to be transferred to the Kindle. This occurs because you do not have books in common between your caliber library and your library on the device. If you have modified any minor detail of the books in Caliber, the change will not be synchronized with your Kindle, please: Re-send the Caliber books to the Kindle and run this application again..
+        ///   Busca una cadena traducida similar a No image has been generated. This may occur because:
+        ///
+        ///- There are no books from this library on the Kindle
+        ///- No book in this library has a cover.
+        ///- No books in this library have an associated UUID
+        ///
+        ///To learn how to identify and resolve these issues, visit:
+        ///
+        ///https://github.com/weto91/kindle-cover-fixer/wiki/Can&apos;t-generate-covers.
         /// </summary>
         internal static string CantTransfer {
             get {
@@ -264,6 +272,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string ClearOutput {
             get {
                 return ResourceManager.GetString("ClearOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Please,connect the Kindle..
+        /// </summary>
+        internal static string ConnectKindle {
+            get {
+                return ResourceManager.GetString("ConnectKindle", resourceCulture);
             }
         }
         
@@ -349,6 +366,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a All the books was listed, but: .
+        /// </summary>
+        internal static string FinishListingWithErrors {
+            get {
+                return ResourceManager.GetString("FinishListingWithErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Generate Covers.
         /// </summary>
         internal static string GenerateCovers {
@@ -399,6 +425,15 @@ namespace Kindle_Cover_Fixer_V2 {
         internal static string GroupOutput {
             get {
                 return ResourceManager.GetString("GroupOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  have any error. Please review the las 2 columns in the table..
+        /// </summary>
+        internal static string HaveError {
+            get {
+                return ResourceManager.GetString("HaveError", resourceCulture);
             }
         }
         
@@ -529,11 +564,38 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No cover.
+        /// </summary>
+        internal static string NoCover {
+            get {
+                return ResourceManager.GetString("NoCover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a All right.
+        /// </summary>
+        internal static string NoProblem {
+            get {
+                return ResourceManager.GetString("NoProblem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Generated covers will not be able to be transferred to the Kindle if no cover corresponds to a book currently on Kindle..
         /// </summary>
         internal static string NotTransferible {
             get {
                 return ResourceManager.GetString("NotTransferible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No UUID.
+        /// </summary>
+        internal static string NoUuid {
+            get {
+                return ResourceManager.GetString("NoUuid", resourceCulture);
             }
         }
         

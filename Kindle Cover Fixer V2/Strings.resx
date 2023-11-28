@@ -313,7 +313,15 @@
     <value>Output settings (Covers)</value>
   </data>
   <data name="CantTransfer" xml:space="preserve">
-    <value>The images have been generated in the output directory, but they will not be able to be transferred to the Kindle. This occurs because you do not have books in common between your caliber library and your library on the device. If you have modified any minor detail of the books in Caliber, the change will not be synchronized with your Kindle, please: Re-send the Caliber books to the Kindle and run this application again.</value>
+    <value>No image has been generated. This may occur because:
+
+- There are no books from this library on the Kindle
+- No book in this library has a cover.
+- No books in this library have an associated UUID
+
+To learn how to identify and resolve these issues, visit:
+
+https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
   </data>
   <data name="CantTransferTitle" xml:space="preserve">
     <value>Generated images cannot be transferred</value>
@@ -329,5 +337,23 @@
   </data>
   <data name="BookLibrary" xml:space="preserve">
     <value>LIBRARY</value>
+  </data>
+  <data name="NoCover" xml:space="preserve">
+    <value>No cover</value>
+  </data>
+  <data name="NoUuid" xml:space="preserve">
+    <value>No UUID</value>
+  </data>
+  <data name="NoProblem" xml:space="preserve">
+    <value>All right</value>
+  </data>
+  <data name="FinishListingWithErrors" xml:space="preserve">
+    <value>All the books was listed, but: </value>
+  </data>
+  <data name="HaveError" xml:space="preserve">
+    <value> have any error. Please review the las 2 columns in the table.</value>
+  </data>
+  <data name="ConnectKindle" xml:space="preserve">
+    <value>Please,connect the Kindle.</value>
   </data>
 </root>

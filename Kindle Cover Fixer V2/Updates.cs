@@ -6,7 +6,6 @@ namespace Kindle_Cover_Fixer_V2
 {
     public partial class MainWindow
     {
-        // Check the version in GitHub and compare it with the application version
         private async void CheckGitHubNewerVersion()
         {
             GitHubClient client = new(new ProductHeaderValue("Kindle_Cover_Fixer"));

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kindle_Cover_Fixer_V2
+﻿namespace Kindle_Cover_Fixer_V2
 {
     public partial class MainWindow
     {
