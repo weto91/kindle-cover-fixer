@@ -35,7 +35,7 @@ namespace Kindle_Cover_Fixer_V2
                 {
                     if (library.Length > 1)
                     {
-                        List<string> data = new();
+                        string data = string.Empty;
                         string cs = @"URI=file:" + library + @"\metadata.db";
                         using SQLiteConnection connection = new(cs);
                         connection.Open();
@@ -49,18 +49,14 @@ namespace Kindle_Cover_Fixer_V2
                                 string bookPath = library + @"\" + myReader["path"].ToString() + @"\cover.jpg";
                                 if (File.Exists(bookPath))
                                 {
-                                    data.Add(bookPath);
+                                    Dispatcher.Invoke(() =>
+                                    {
+                                        coverShow.Source = new BitmapImage(new Uri(bookPath));
+                                    });
+                                    Thread.Sleep(8000);
                                 }
                             }
-                        }
-                        foreach (string book in data)
-                        {
-                            Trace.WriteLine("Cover: " + book);
-                            Dispatcher.Invoke(() =>
-                            {
-                                coverShow.Source = new BitmapImage(new Uri(book));
-                            });
-                            Thread.Sleep(8000);
+                            connection.Close();
                         }
                     }
                 }
