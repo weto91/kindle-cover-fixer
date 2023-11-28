@@ -136,7 +136,7 @@
     <value>UUID</value>
   </data>
   <data name="CalibreLib" xml:space="preserve">
-    <value>Librería de Calibre:</value>
+    <value>Biblioteca de Calibre:</value>
   </data>
   <data name="CanDo" xml:space="preserve">
     <value>En este punto, puedes hacer dos cosas:</value>
@@ -336,7 +336,7 @@ https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
     <value>PROBLEMA</value>
   </data>
   <data name="BookLibrary" xml:space="preserve">
-    <value>LIBRERÍA</value>
+    <value>BIBLIOTECA</value>
   </data>
   <data name="NoCover" xml:space="preserve">
     <value>PORTADA</value>
@@ -367,5 +367,8 @@ https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
 - COVER: El libro no tiene portada.
 - UUID: El libro no tiene UUID
 - FORMAT: El libro no está en formato .mobi/.azw3</value>
+  </data>
+  <data name="AllLibraries" xml:space="preserve">
+    <value>[UTILIZAR TODAS LAS BIBLIOTECA DISPONIBLES] ** TESTING **</value>
   </data>
 </root>

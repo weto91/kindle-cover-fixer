@@ -61,7 +61,7 @@ namespace Kindle_Cover_Fixer_V2
             string? path = Environment.GetEnvironmentVariable("APPDATA");
             string configFile;
             if (path?.Length > 0)
-            {  
+            {
                 configFile = path + @"\calibre\gui.json";
                 string text = File.ReadAllText(configFile);
                 JObject? libJson = JObject.Parse(text);
@@ -74,13 +74,13 @@ namespace Kindle_Cover_Fixer_V2
                         if (line != string.Empty && line != "}" && line != "{")
                         {
                             resultList.Add(line.Split(": ")[0].Split('"')[1]);
-                        }                       
+                        }
                     }
                 }
                 else
                 {
                     resultList.Add("[ERROR] Cant find Calibre Libraries in its configuration files.");
-                }       
+                }
             }
             else
             {

@@ -368,4 +368,7 @@ https://github.com/weto91/kindle-cover-fixer/wiki/Can't-generate-covers</value>
 - UUID: The book does not have a UUID
 - FORMAT: The book is not in .mobi/.azw3 format</value>
   </data>
+  <data name="AllLibraries" xml:space="preserve">
+    <value>[USE ALL AVAILABLE LIBRARIES] ** TESTING **</value>
+  </data>
 </root>

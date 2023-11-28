@@ -79,6 +79,15 @@ namespace Kindle_Cover_Fixer_V2 {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a [USE ALL AVAILABLE LIBRARIES] ** TESTING **.
+        /// </summary>
+        internal static string AllLibraries {
+            get {
+                return ResourceManager.GetString("AllLibraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a LIBRARY.
         /// </summary>
         internal static string BookLibrary {

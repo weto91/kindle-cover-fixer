@@ -22,7 +22,13 @@ namespace Kindle_Cover_Fixer_V2
                 }
                 LogLine("LIBRARY", "Library: " + library + " loaded.");
             }
+            if (libraryPath.Items.Count > 1) 
+            {
+                // TODO: change when finish the develop of this: libraryPath.Items.Insert(0, Strings.AllLibraries); 
+                libraryPath.Items.Add(Strings.AllLibraries);
+            }
             libraryPath.SelectedIndex = 0;
         }
+
     }
 }
