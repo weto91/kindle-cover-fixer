@@ -29,6 +29,12 @@ namespace Kindle_Cover_Fixer_V2
                             string[] resultTrue = new string[] {bookUuid, "true" };
                             return resultTrue;
                         }
+                        else
+                        {
+                            wrongFormat = false;
+                            string[] resultNoUuid = new string[] { "", "true" };
+                            return resultNoUuid;
+                        }
                     }
                     else
                     {
@@ -38,12 +44,18 @@ namespace Kindle_Cover_Fixer_V2
                             wrongFormat = false;
                             bookUuid = findBookUuid.Groups[0].Value.Split(",")[1];
                             string[] resultFalse = new string[] { bookUuid, "false" };
+                            return resultFalse;                         
+                        }
+                        else
+                        {
+                            wrongFormat = false;
+                            string[] resultFalse = new string[] { "", "false" };
                             return resultFalse;
                         }
                     }
                 }
                 else
-                {
+                {                    
                     wrongFormat = true;
                 }
             }
@@ -54,6 +66,7 @@ namespace Kindle_Cover_Fixer_V2
             }
             else
             {
+                Trace.WriteLine("AQUI 2 :" + path);
                 string[] result = new string[] { "", "false" };
                 return result;
             }
