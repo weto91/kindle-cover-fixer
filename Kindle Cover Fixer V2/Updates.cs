@@ -1,5 +1,6 @@
 ﻿using Octokit;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
 
 namespace Kindle_Cover_Fixer_V2
@@ -12,8 +13,8 @@ namespace Kindle_Cover_Fixer_V2
             var releases = await client.Repository.Release.GetLatest("weto91", "kindle-cover-fixer");
             var latest = releases.Name;
             var features = releases.Body;
-            float latestVersion = float.Parse(latest.ToString().Split(' ')[1]);
-            float localVersion = float.Parse(UsefulVariables.AppVersion);
+            float latestVersion = float.Parse(latest.ToString().Split(' ')[1], CultureInfo.InvariantCulture);
+            float localVersion = float.Parse(UsefulVariables.AppVersion, CultureInfo.InvariantCulture);
             if (latestVersion > localVersion)
             {
                 versionApp.Content = Strings.Version + UsefulVariables.AppVersion + Strings.NewVersionAv; 
