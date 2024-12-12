@@ -90,7 +90,7 @@
 > - Have a correct format (.azw3 or .mobi)
 
 ## Compatible devices
-- Kindle Scribe
+- Kindle Scribe (1. gen)
 - Kindle Oasis (10. gen)
 - Kindle Oasis (9. gen)
 - Kindle Oasis (8. gen)
